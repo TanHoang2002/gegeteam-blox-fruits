@@ -1,0 +1,5 @@
+# Muse / build leftovers
+.harness/
+audits/
+.space-build*/
+space.json
