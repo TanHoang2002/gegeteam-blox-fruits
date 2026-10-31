@@ -3,75 +3,64 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="color-scheme" content="light dark" />
-    <link rel="icon" href="data:," />
-    <title>GegeTeam — Bảng giá Blox Fruits</title>
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="icon.webp" type="image/webp" />
+    <title>GegeTeam — Bảng giá thu mua Blox Fruits</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
       :root{
-        --bg:#e8f6f9;
-        --bg-deep:#0b3d5c;
-        --surface:#ffffff;
-        --surface-2:#f2fafc;
-        --ink:#0a2e3f;
-        --ink-soft:#3d6070;
-        --line:#cfe6ec;
-        --sea:#0284c7;
-        --sea-deep:#075985;
-        --teal:#0d9488;
-        --gold:#d97706;
-        --gold-bg:#fef3c7;
-        --coral:#e11d48;
-        --price:#b45309;
-        --chip:#e0f2fe;
-        --shadow:0 10px 30px rgba(7,60,90,.12);
-        --hero-ink:#ffffff;
-      }
-      @media (prefers-color-scheme: dark){
-        :root{
-          --bg:#041c2b;
-          --bg-deep:#02141f;
-          --surface:#0a2f45;
-          --surface-2:#0d3852;
-          --ink:#eaf7fc;
-          --ink-soft:#a8c9d8;
-          --line:#164863;
-          --sea:#38bdf8;
-          --sea-deep:#7dd3fc;
-          --teal:#2dd4bf;
-          --gold:#fbbf24;
-          --gold-bg:#3a2c07;
-          --price:#fbbf24;
-          --chip:#0d3a56;
-          --shadow:0 10px 30px rgba(0,0,0,.45);
-        }
+        color-scheme:dark;
+        --night:#06202f;
+        --sea:#0b3a52;
+        --sea-2:#10506e;
+        --foam:#eef7f3;
+        --foam-soft:#b4d0d3;
+        --line:#2a6079;
+        --parch:#f8e9c8;
+        --parch-2:#eed6a4;
+        --parch-edge:#a97a3d;
+        --ink:#2c1a0d;
+        --ink-soft:#694c2f;
+        --gold:#f9bd3a;
+        --gold-deep:#d98a12;
+        --red:#c4271c;
+        --red-deep:#8e170f;
+        --display:"Bangers","Baloo 2",system-ui,sans-serif;
+        --shadow:0 12px 28px rgba(0,12,22,.45);
+        --swirl:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23000' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M50 52c0-7 11-7 11 2s-15 12-20 1 4-24 19-21 22 19 13 33-32 15-43 1-7-36 8-46 38-8 49 8'/%3E%3C/svg%3E");
       }
       *{box-sizing:border-box}
       html{scroll-behavior:smooth}
       body{
         margin:0;
         font-family:"Be Vietnam Pro",system-ui,sans-serif;
-        background:var(--bg);
-        color:var(--ink);
+        background:
+          radial-gradient(1100px 600px at 85% 8%,rgba(16,80,110,.65),transparent 70%),
+          radial-gradient(900px 700px at 5% 55%,rgba(16,80,110,.45),transparent 70%),
+          var(--night);
+        color:var(--foam);
         -webkit-font-smoothing:antialiased;
       }
       img{max-width:100%}
       a{color:inherit}
-      .wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+      button{font:inherit}
+      :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+      .wrap{max-width:1280px;margin:0 auto;padding:0 18px}
 
       /* ---------- HERO ---------- */
       .hero{
         position:relative;
         overflow:hidden;
         background:#0a5d94 url("assets/hero.webp") center/cover no-repeat;
-        color:var(--hero-ink);
+        color:#fff;
       }
       .hero-shade{
         position:absolute;inset:0;
         background:
-          linear-gradient(180deg,rgba(3,32,50,.30) 0%,rgba(3,32,50,0) 30%,rgba(3,32,50,.18) 62%,rgba(3,32,50,.55) 88%,rgba(3,32,50,.78) 100%);
+          linear-gradient(90deg,rgba(3,22,36,.88) 0%,rgba(3,22,36,.68) 36%,rgba(3,22,36,.08) 68%),
+          linear-gradient(180deg,rgba(3,22,36,.35) 0%,rgba(3,22,36,0) 30%,rgba(6,32,47,.85) 100%);
       }
       .hero-waves{
         position:absolute;left:0;right:0;bottom:-2px;width:100%;height:58px;
@@ -82,51 +71,41 @@
         display:flex;flex-direction:column;gap:14px;
       }
       .hero-featured .hf-tile{
-        display:block;width:68px;height:68px;border-radius:16px;overflow:hidden;
-        background:#f9efd8;border:2px solid rgba(255,255,255,.85);
-        box-shadow:0 10px 22px rgba(0,25,45,.42);
+        display:block;width:76px;height:76px;border-radius:50%;overflow:hidden;padding:7px;
+        background:var(--parch);border:3px solid var(--gold);
+        box-shadow:0 10px 22px rgba(0,25,45,.5);
       }
       .hero-featured .hf-tile img{width:100%;height:100%;object-fit:contain;display:block}
-      .hero-featured .hf-tile:nth-child(1){transform:rotate(-2deg)}
-      .hero-featured .hf-tile:nth-child(2){transform:rotate(2deg)}
-      .hero-featured .hf-tile:nth-child(3){transform:rotate(-1.5deg)}
+      .hero-featured .hf-tile:nth-child(1){transform:rotate(-4deg)}
+      .hero-featured .hf-tile:nth-child(2){transform:rotate(4deg)}
+      .hero-featured .hf-tile:nth-child(3){transform:rotate(-3deg)}
       @media(max-width:700px){
         .hero-featured{position:static;flex-direction:row;margin-top:20px}
         .hero-featured .hf-tile{width:62px;height:62px}
       }
-      .hero-inner{position:relative;padding:26px 0 34px}
-      .hero-top{
-        display:flex;align-items:center;gap:14px;
-      }
+      .hero-inner{position:relative;padding:26px 18px 74px}
+      .hero-top{display:flex;align-items:center;gap:14px}
       .hero-logo{
         width:74px;height:74px;object-fit:contain;flex:none;
         filter:drop-shadow(0 6px 14px rgba(0,0,0,.45));
       }
       .hero-brand{line-height:1.15}
       .hero-brand b{
-        font-family:"Baloo 2",cursive;font-size:1.35rem;font-weight:800;letter-spacing:.02em;
+        font-family:"Baloo 2",system-ui,sans-serif;font-size:1.35rem;font-weight:800;letter-spacing:.02em;
         text-shadow:0 2px 10px rgba(0,0,0,.5);
       }
       .hero-brand span{display:block;font-size:.86rem;font-weight:600;color:#ffe9b8;text-shadow:0 1px 6px rgba(0,0,0,.6)}
-      .hero-cta-top{
-        margin-left:auto;flex:none;
-        background:#f59e0b;color:#231300;font-weight:800;font-size:.9rem;
-        padding:11px 18px;border-radius:999px;text-decoration:none;
-        box-shadow:0 8px 20px rgba(0,0,0,.35);
-      }
-      .hero-cta-top:hover{background:#fbbf24}
       .hero-title{
         margin:34px 0 0;
-        font-family:"Baloo 2",cursive;
-        font-weight:800;
-        font-size:clamp(3rem,11vw,6.2rem);
-        line-height:.98;letter-spacing:.01em;
-        text-shadow:0 2px 0 #052a40,0 5px 0 rgba(2,44,66,.6),0 16px 38px rgba(0,0,0,.55);
+        font-family:var(--display);
+        font-weight:400;
+        font-size:clamp(3.6rem,12vw,7.4rem);
+        line-height:.95;letter-spacing:.035em;
+        text-shadow:0 4px 0 #052a40,0 16px 38px rgba(0,0,0,.55);
       }
       .hero-title .fruit-word{
-        background:linear-gradient(92deg,#fde047 5%,#fb923c 55%,#f43f5e 100%);
-        -webkit-background-clip:text;background-clip:text;color:transparent;
-        filter:drop-shadow(0 3px 0 rgba(2,44,66,.45));
+        color:var(--gold);
+        text-shadow:0 4px 0 var(--red-deep),0 16px 38px rgba(0,0,0,.55);
       }
       .hero-sub{
         margin:16px 0 0;max-width:560px;
@@ -134,156 +113,229 @@
         text-shadow:0 2px 8px rgba(0,0,0,.65);
       }
       .hero-slogan{
-        margin:12px 0 0;font-family:"Baloo 2",cursive;font-size:1.08rem;font-weight:700;color:#fde68a;
+        margin:12px 0 0;font-family:"Baloo 2",system-ui,sans-serif;font-size:1.08rem;font-weight:700;color:#fde68a;
         text-shadow:0 2px 8px rgba(0,0,0,.6);
       }
-      .hero-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
-      .hero-chip{
-        background:rgba(4,40,60,.62);border:1.5px solid rgba(255,255,255,.35);
-        backdrop-filter:blur(4px);
-        padding:8px 14px;border-radius:999px;font-weight:700;font-size:.88rem;
-      }
-      .hero-chip b{color:#fcd34d}
       .hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:24px}
       .btn{
         display:inline-flex;align-items:center;gap:9px;
         font-weight:800;font-size:.98rem;text-decoration:none;
-        padding:13px 22px;border-radius:14px;
+        padding:13px 22px;border-radius:12px;
       }
-      .btn-gold{background:#f59e0b;color:#231300;box-shadow:0 10px 24px rgba(0,0,0,.35)}
-      .btn-gold:hover{background:#fbbf24}
-      .btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55)}
-      .btn-ghost:hover{background:rgba(255,255,255,.26)}
+      .btn-gold{background:var(--gold);color:#231300;box-shadow:0 5px 0 var(--gold-deep),0 14px 24px rgba(0,0,0,.35)}
+      .btn-gold:hover{background:#ffd364}
       .btn svg{width:19px;height:19px;flex:none}
 
       /* ---------- SECTIONS ---------- */
-      section{padding:54px 0 10px}
-      .sec-head{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+      section{padding:54px 0 10px;scroll-margin-top:8px}
       h2{
-        font-family:"Baloo 2",cursive;font-weight:800;
-        font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.1;margin:0;color:var(--ink);
+        font-family:var(--display);font-weight:400;letter-spacing:.035em;
+        font-size:clamp(2.1rem,5vw,3rem);line-height:1.25;margin:0;color:var(--foam);
       }
       h2::after{
-        content:"";display:block;width:58px;height:5px;border-radius:99px;margin-top:11px;
-        background:linear-gradient(90deg,var(--gold),var(--sea));
+        content:"";display:block;width:120px;height:7px;border-radius:99px;margin-top:9px;
+        background:repeating-linear-gradient(115deg,var(--gold) 0 7px,var(--gold-deep) 7px 12px);
       }
-      h2 .accent{color:var(--sea)}
-      .sec-note{color:var(--ink-soft);font-size:.97rem;line-height:1.6;max-width:680px;margin:6px 0 0}
+      h2 .accent{color:var(--gold)}
+      .sec-note{color:var(--foam-soft);font-size:.97rem;line-height:1.6;max-width:680px;margin:10px 0 0}
+
+      /* ---------- MARKET LAYOUT ---------- */
+      .market{display:block;margin-top:14px}
+      .market-main{min-width:0}
+      @media(min-width:1024px){
+        .market{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:24px;align-items:start}
+      }
 
       /* ---------- PRICE BOARD ---------- */
       .board-tools{
         position:sticky;top:0;z-index:20;
-        background:var(--bg);
-        padding:14px 0 12px;margin-top:10px;
+        background:var(--night);
+        padding:12px 0;
         border-bottom:2px solid var(--line);
-        box-shadow:0 10px 18px -12px rgba(7,60,90,.35);
       }
       .search-row{display:flex;gap:10px}
       .search-box{
         flex:1;display:flex;align-items:center;gap:10px;
-        background:var(--surface);border:2px solid var(--line);border-radius:14px;
-        padding:0 14px;box-shadow:var(--shadow);
+        background:var(--sea);border:2px solid var(--line);border-radius:12px;
+        padding:0 14px;
       }
-      .search-box svg{width:20px;height:20px;flex:none;color:var(--ink-soft)}
+      .search-box:focus-within{border-color:var(--gold)}
+      .search-box svg{width:20px;height:20px;flex:none;color:var(--foam-soft)}
       .search-box input{
         flex:1;min-width:0;border:0;outline:0;background:transparent;
-        font:inherit;font-size:1rem;font-weight:600;color:var(--ink);
-        padding:13px 0;
+        font:inherit;font-size:1rem;font-weight:600;color:var(--foam);
+        padding:12px 0;
       }
-      .search-box input::placeholder{color:var(--ink-soft);font-weight:500}
-      .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+      .search-box input::placeholder{color:var(--foam-soft);font-weight:500}
+      .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
       .tab{
-        font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;
-        border:2px solid var(--line);background:var(--surface);color:var(--ink-soft);
-        padding:9px 15px;border-radius:999px;
+        display:inline-flex;align-items:center;gap:7px;
+        font-weight:700;font-size:.86rem;cursor:pointer;
+        border:2px solid var(--line);background:var(--sea);color:var(--foam-soft);
+        padding:7px 13px;border-radius:999px;
       }
-      .tab:hover{border-color:var(--sea);color:var(--sea-deep)}
-      .tab{display:inline-flex;align-items:center;gap:7px}
-      .tab .dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--tab-c,var(--sea))}
-      .tab.active{background:var(--tab-c,var(--sea));border-color:var(--tab-c,var(--sea));color:#fff}
-      .tab.active .dot{background:#fff}
+      .tab:hover{border-color:var(--gold);color:var(--foam)}
+      .tab .dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--tab-c,var(--gold))}
+      .tab.active{background:var(--gold);border-color:var(--gold);color:#231300}
+      .tab.active .dot{background:#231300}
       .tab .cnt{opacity:.75;font-weight:600;font-size:.82em;margin-left:2px}
 
       .group{margin-top:26px}
       .group-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
       .group-badge{
-        font-family:"Baloo 2",cursive;font-weight:800;font-size:1.02rem;
-        padding:7px 14px;border-radius:10px;color:#fff;white-space:nowrap;
+        font-family:var(--display);font-size:1.25rem;letter-spacing:.04em;
+        padding:4px 14px;border-radius:6px;color:#fff;white-space:nowrap;
+        background:var(--g-accent);transform:rotate(-1.5deg);
       }
-      .g-base{--g-accent:#0284c7}
-      .g-mutation{--g-accent:#db2777}
-      .g-skin{--g-accent:#ea580c}
+      .g-base{--g-accent:#0d7bb5}
+      .g-mutation{--g-accent:#b81d66}
+      .g-skin{--g-accent:#c9500e}
       .g-limited{--g-accent:#0f766e}
-      .group-badge{background:var(--g-accent,#0284c7)}
-      .group-desc{color:var(--ink-soft);font-size:.9rem;line-height:1.5}
-      .group-count{margin-left:auto;flex:none;color:var(--ink-soft);font-weight:700;font-size:.86rem}
+      .group-desc{color:var(--foam-soft);font-size:.9rem;line-height:1.5}
+      .group-count{margin-left:auto;flex:none;color:var(--foam-soft);font-weight:700;font-size:.86rem}
 
-      .rows{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
-      @media(min-width:720px){.rows{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}}
-      @media(min-width:1024px){.rows{grid-template-columns:repeat(4,minmax(0,1fr))}}
+      /* Thẻ item kiểu tờ truy nã trên giấy da */
+      .rows{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+      @media(min-width:720px){.rows{grid-template-columns:repeat(auto-fill,minmax(186px,1fr));gap:14px}}
       .row{
-        display:flex;align-items:flex-start;gap:10px;
-        padding:11px 12px;
-        background:var(--surface);
-        border:1.5px solid var(--line);
-        border-top:4px solid var(--g-accent,#0284c7);
-        border-radius:14px;
-        box-shadow:0 4px 14px rgba(7,60,90,.08);
-        transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
-        min-width:0;
+        position:relative;display:flex;flex-direction:column;align-items:center;
+        min-width:0;padding:9px 10px 10px;text-align:center;
+        background:linear-gradient(170deg,var(--parch),var(--parch-2));
+        color:var(--ink);
+        border:2px solid var(--parch-edge);
+        border-radius:5px;
+        box-shadow:0 6px 16px rgba(0,12,22,.45),inset 0 0 22px rgba(169,122,61,.28);
+        transition:transform .16s ease,box-shadow .16s ease;
       }
-      .row:hover{
-        transform:translateY(-2px);
-        border-color:var(--g-accent,#0284c7);
-        box-shadow:0 10px 22px rgba(7,60,90,.15);
+      .row:hover{transform:translateY(-3px) rotate(-.5deg);box-shadow:0 14px 26px rgba(0,12,22,.55),inset 0 0 22px rgba(169,122,61,.28)}
+      .row.in-cart{border-color:var(--red);box-shadow:0 0 0 2px var(--red),0 8px 20px rgba(0,12,22,.5)}
+      .row-cat{
+        font-family:var(--display);font-size:1.05rem;letter-spacing:.06em;line-height:1.25;
+        color:var(--g-accent);
       }
       .item-img{
-        width:54px;height:54px;flex:none;border-radius:12px;overflow:hidden;
-        background:#f9efd8;border:1.5px solid var(--line);
-        box-shadow:0 3px 8px rgba(7,60,90,.12);
+        display:block;width:96px;height:96px;margin:5px 0 7px;flex:none;overflow:hidden;
+        background:#fde3cc;border:3px solid var(--ink);border-radius:3px;
+        box-shadow:0 0 0 2px var(--parch),0 0 0 3px var(--parch-edge);
       }
       .item-img img{width:100%;height:100%;object-fit:contain;display:block}
-      .row-main{flex:1;min-width:0}
-      .row-name{font-weight:800;font-size:.94rem;line-height:1.25;word-break:break-word}
-      .row-cat{
-        display:inline-block;margin-top:4px;font-size:.68rem;font-weight:800;letter-spacing:.02em;
-        color:var(--g-accent,#0284c7);background:var(--surface-2);
-        border:1px solid var(--g-accent,#0284c7);padding:1px 7px;border-radius:999px;white-space:nowrap;
+      .row-name{font-weight:800;font-size:.94rem;line-height:1.25;overflow-wrap:anywhere;min-height:2.5em;display:flex;align-items:center;justify-content:center}
+      .row-note{
+        margin-top:3px;font-size:.72rem;line-height:1.35;color:var(--ink-soft);font-weight:500;
+        display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:2.7em;
       }
-      .row-note{margin-top:3px;font-size:.72rem;line-height:1.35;color:var(--ink-soft);font-weight:500;word-break:break-word}
-      .row-price{margin-top:7px;text-align:left}
-      .price-pending{
-        display:inline-flex;align-items:center;gap:6px;
-        font-family:"Baloo 2",cursive;font-weight:800;font-size:.84rem;
-        color:var(--price);background:var(--gold-bg);
-        border:1.5px solid var(--gold);
-        padding:4px 10px;border-radius:999px;white-space:nowrap;
-        box-shadow:0 3px 10px rgba(217,119,6,.18);
+      .row-price{margin-top:auto;padding-top:8px;width:100%}
+      .price-vnd{font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:1.32rem;line-height:1.1;color:var(--red-deep);font-variant-numeric:tabular-nums}
+      .price-usdt{font-size:.8rem;font-weight:700;color:#0a6a5f;font-variant-numeric:tabular-nums}
+      .price-pending{font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:1rem;line-height:1.35;color:var(--ink-soft)}
+      .price-sub{font-size:.8rem;font-weight:700;color:var(--ink-soft)}
+      .row-ctl{width:100%;margin-top:8px}
+      .add-btn,.ask-btn{
+        display:block;width:100%;min-height:38px;padding:7px 6px;border-radius:7px;cursor:pointer;text-decoration:none;
+        font-weight:800;font-size:.84rem;line-height:1.5;text-align:center;
       }
-      .price-pending::before{
-        content:"";width:8px;height:8px;border-radius:50%;flex:none;background:var(--gold);
+      .add-btn{background:var(--red);color:#fff;border:0;box-shadow:0 3px 0 var(--red-deep)}
+      .add-btn:hover{background:#dc3226}
+      .ask-btn{background:transparent;color:var(--ink);border:2px solid var(--parch-edge)}
+      .ask-btn:hover{background:rgba(169,122,61,.2)}
+      .stepper{display:none;align-items:center;justify-content:space-between;gap:4px}
+      .row.in-cart .stepper{display:flex}
+      .row.in-cart .add-btn{display:none}
+      .stepper button{
+        width:38px;height:38px;flex:none;border:0;border-radius:7px;cursor:pointer;
+        background:var(--ink);color:var(--parch);font-size:1.15rem;font-weight:800;line-height:1;
       }
-      .price-value{font-weight:800;font-size:1.14rem;color:var(--price);line-height:1.3}
-      .price-value small{display:block;font-size:.82rem;color:var(--ink-soft);font-weight:700}
+      .stepper button:hover{background:var(--red)}
+      .stepper .qty{font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:1.15rem;min-width:2ch;text-align:center}
       .empty{
-        display:none;text-align:center;color:var(--ink-soft);font-weight:600;
-        padding:34px 16px;background:var(--surface);border:2px dashed var(--line);border-radius:18px;margin-top:22px;
+        display:none;text-align:center;color:var(--foam-soft);font-weight:600;
+        padding:34px 16px;background:var(--sea);border:2px dashed var(--line);border-radius:12px;margin-top:22px;
       }
       .board-foot{
-        margin-top:16px;color:var(--ink-soft);font-size:.92rem;line-height:1.6;
+        margin-top:18px;color:var(--foam-soft);font-size:.92rem;line-height:1.6;
         display:flex;gap:10px;align-items:flex-start;
       }
-      .board-foot svg{width:20px;height:20px;flex:none;margin-top:2px;color:var(--sea)}
+      .board-foot svg{width:20px;height:20px;flex:none;margin-top:2px;color:var(--gold)}
+
+      /* ---------- PHIẾU BÁN (MÁY TÍNH TIỀN) ---------- */
+      .sell-panel{
+        background:linear-gradient(170deg,var(--parch),var(--parch-2));
+        color:var(--ink);border:3px solid var(--parch-edge);border-radius:8px;
+        box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;
+      }
+      @media(min-width:1024px){
+        .sell-panel{position:sticky;top:12px;max-height:calc(100vh - 24px)}
+        .sell-close{display:none}
+      }
+      .sell-head{
+        display:flex;align-items:center;gap:10px;padding:11px 14px;
+        background:var(--red);color:#fff;
+      }
+      .sell-head h3{margin:0;font-family:var(--display);font-weight:400;font-size:1.5rem;letter-spacing:.05em;line-height:1.1}
+      .sell-head small{display:block;font-size:.76rem;font-weight:600;color:#ffe3dc}
+      .sell-close{margin-left:auto;width:38px;height:38px;flex:none;border:0;border-radius:7px;background:rgba(0,0,0,.25);color:#fff;font-size:1.6rem;line-height:1;font-weight:800;cursor:pointer}
+      .sell-empty{padding:26px 18px;text-align:center;color:var(--ink-soft);font-weight:600;font-size:.92rem;line-height:1.55}
+      .sell-lines{list-style:none;margin:0;padding:4px 12px;overflow-y:auto;flex:1 1 auto;min-height:0}
+      .sell-line{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:4px 9px;align-items:center;padding:9px 0;border-bottom:1px dashed var(--parch-edge)}
+      .sell-line:last-child{border-bottom:0}
+      .sell-line img{width:42px;height:42px;object-fit:contain;grid-row:span 2}
+      .sell-line b{font-size:.86rem;line-height:1.25;overflow-wrap:anywhere}
+      .sell-line .amt{font-weight:800;font-size:.86rem;color:var(--red-deep);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+      .sell-line .stepper{display:flex;grid-column:2/4;justify-content:flex-start}
+      .sell-line .stepper button{width:30px;height:30px;font-size:1rem}
+      .sell-line .stepper .qty{font-size:1rem;min-width:3ch}
+      .sell-line .stepper .unit{margin-left:auto;font-size:.74rem;font-weight:600;color:var(--ink-soft);white-space:nowrap}
+      .sell-sum{flex:none;padding:13px 14px 14px;background:var(--ink);color:var(--parch)}
+      .sum-label{font-size:.8rem;font-weight:700;color:#d9c196}
+      .sum-vnd{font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:1.85rem;line-height:1.15;color:var(--gold);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+      .sum-usdt:empty{display:none}
+      .sum-usdt{font-family:"Baloo 2",system-ui,sans-serif;font-weight:700;font-size:1.2rem;line-height:1.2;color:#7ce0c8;font-variant-numeric:tabular-nums}
+      .sum-rate{margin:7px 0 0;font-size:.73rem;line-height:1.45;color:#d9c196}
+      .sell-send{
+        display:block;width:100%;margin-top:11px;padding:12px;border:0;border-radius:9px;cursor:pointer;
+        background:#0068ff;color:#fff;font-weight:800;font-size:.95rem;
+      }
+      .sell-send:hover{background:#2b80ff}
+      .sell-send:disabled{background:#574a3a;color:#b9a98f;cursor:not-allowed}
+      .sell-clear{display:block;margin:9px auto 0;padding:4px 8px;background:none;border:0;color:#d9c196;font-weight:600;font-size:.8rem;text-decoration:underline;cursor:pointer}
+      .sell-clear[hidden]{display:none}
+      .sell-toast{margin:9px 0 0;font-size:.78rem;font-weight:700;line-height:1.45;color:#7ce0c8}
+      .sell-toast:empty{display:none}
+
+      /* Thanh tổng tiền + phiếu trượt lên trên màn hình nhỏ */
+      .sell-bar{display:none}
+      .sell-backdrop{display:none}
+      @media(max-width:1023px){
+        .sell-panel{
+          position:fixed;left:0;right:0;bottom:0;z-index:70;max-height:86vh;
+          border-width:3px 0 0;border-radius:14px 14px 0 0;
+          transform:translateY(100%);visibility:hidden;transition:transform .22s ease,visibility .22s;
+        }
+        .sell-panel.open{transform:none;visibility:visible}
+        .sell-backdrop.open{display:block;position:fixed;inset:0;z-index:65;background:rgba(0,10,18,.65)}
+        body.has-cart .sell-bar{
+          position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;align-items:center;gap:12px;
+          padding:9px 14px calc(9px + env(safe-area-inset-bottom));
+          background:var(--ink);color:var(--parch);border-top:3px solid var(--gold);
+        }
+        .bar-total{flex:1;min-width:0;line-height:1.2}
+        .bar-total b{display:block;font-family:"Baloo 2",system-ui,sans-serif;font-size:1.2rem;color:var(--gold);font-variant-numeric:tabular-nums}
+        .bar-total span{font-size:.76rem;font-weight:700;color:#7ce0c8}
+        .bar-open{flex:none;border:0;border-radius:9px;padding:11px 15px;background:var(--red);color:#fff;font-weight:800;font-size:.9rem;cursor:pointer}
+        body.has-cart .zalo-float{bottom:82px}
+        body.has-cart footer{padding-bottom:150px}
+      }
 
       /* ---------- LEARN ---------- */
       .learn-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
       @media(min-width:720px){.learn-grid{grid-template-columns:1fr 1fr}}
       .learn-card{
-        background:var(--surface);border:2px solid var(--line);border-radius:18px;
+        background:linear-gradient(170deg,var(--parch),var(--parch-2));color:var(--ink);
+        border:2px solid var(--parch-edge);border-radius:6px;
         padding:20px;box-shadow:var(--shadow);
       }
       .learn-card h3{
-        font-family:"Baloo 2",cursive;font-size:1.22rem;font-weight:800;margin:0 0 8px;
+        font-family:var(--display);font-weight:400;letter-spacing:.04em;font-size:1.5rem;margin:0 0 8px;
         display:flex;align-items:center;gap:10px;
       }
       .learn-dot{width:15px;height:15px;border-radius:50%;flex:none;box-shadow:inset -3px -3px 5px rgba(0,0,0,.25)}
@@ -296,49 +348,35 @@
       @media(min-width:980px){.social-grid{grid-template-columns:repeat(3,1fr)}}
       .soc{
         display:flex;align-items:center;gap:14px;text-decoration:none;
-        background:var(--surface);border:2px solid var(--line);border-radius:16px;
-        padding:16px 18px;box-shadow:var(--shadow);
+        background:var(--sea);border:2px solid var(--line);border-radius:12px;
+        padding:16px 18px;
         position:relative;overflow:hidden;
       }
+      .soc:hover{border-color:var(--gold)}
       .soc::before{
         content:"";position:absolute;inset:0;background:var(--brand,#0284c7);
-        transform:scaleX(0);transform-origin:left;transition:transform .35s ease;opacity:.12;
+        transform:scaleX(0);transform-origin:left;transition:transform .35s ease;opacity:.18;
       }
       .soc:hover::before{transform:scaleX(1)}
       .soc-ic{
         width:46px;height:46px;flex:none;border-radius:13px;
         background:var(--brand,#0284c7);color:#fff;
         display:flex;align-items:center;justify-content:center;
-        font-family:"Baloo 2",cursive;font-weight:800;font-size:1.05rem;
+        font-family:"Baloo 2",system-ui,sans-serif;font-weight:800;font-size:1.05rem;
         position:relative;
       }
       .soc-ic svg{width:24px;height:24px}
       .soc b{display:block;font-size:1rem;position:relative}
-      .soc span{color:var(--ink-soft);font-size:.86rem;position:relative}
-      .soc .arrow{margin-left:auto;color:var(--ink-soft);font-weight:800;position:relative}
+      .soc span{color:var(--foam-soft);font-size:.86rem;position:relative}
+      .soc .soc-ic{color:#fff}
 
-      .contact-band{
-        margin-top:22px;border-radius:20px;padding:24px;
-        background:linear-gradient(120deg,#075985,#0d9488);
-        color:#fff;display:flex;flex-wrap:wrap;gap:16px;align-items:center;
-        box-shadow:var(--shadow);
-      }
-      .contact-band h3{font-family:"Baloo 2",cursive;font-size:1.35rem;margin:0 0 4px}
-      .contact-band p{margin:0;color:#d9f2f7;font-size:.94rem;line-height:1.55}
-      .contact-band .cb-text{flex:1;min-width:230px}
-      .cb-btns{display:flex;gap:10px;flex-wrap:wrap}
-      .cb-btn{
-        background:#fff;color:#075985;font-weight:800;text-decoration:none;
-        padding:12px 20px;border-radius:12px;font-size:.95rem;
-      }
-      .cb-btn.zalo{background:#0068ff;color:#fff}
 
       footer{
         margin-top:52px;padding:26px 0 92px;
-        border-top:2px solid var(--line);color:var(--ink-soft);
+        border-top:2px solid var(--line);color:var(--foam-soft);
         font-size:.88rem;line-height:1.6;
       }
-      footer b{color:var(--ink)}
+      footer b{color:var(--foam)}
 
       /* ---------- FLOATING ZALO ---------- */
       .zalo-float{
@@ -350,292 +388,603 @@
       }
       .zalo-float img{width:100%;height:100%;object-fit:cover}
       .zalo-float::after{
-        content:"Zalo";position:absolute;bottom:5px;left:50%;transform:translateX(-50%);
+        content:"Admin";position:absolute;bottom:5px;left:50%;transform:translateX(-50%);
         background:#0068ff;color:#fff;font-size:.58rem;font-weight:800;
         padding:1px 7px;border-radius:999px;letter-spacing:.03em;
       }
 
       @media(max-width:560px){
         .hero-logo{width:58px;height:58px}
-        .hero-cta-top{display:none}
-        .row{gap:8px;padding:9px}
-        .item-img{width:44px;height:44px;border-radius:10px}
-        .price-pending{font-size:.74rem;padding:3px 8px;gap:4px}
-        .price-pending::before{width:6px;height:6px}
-        .row-name{font-size:.84rem}
-        .row-note{font-size:.66rem;line-height:1.3}
-        .row-cat{font-size:.6rem;padding:0 5px}
+        .row{padding:8px 8px 9px}
+        .item-img{width:82px;height:82px}
+        .add-btn{font-size:.8rem;padding:7px 3px}
+        .row-name{font-size:.86rem}
+        .row-note{font-size:.68rem}
+        .price-vnd{font-size:1.16rem}
         .group-head{flex-wrap:wrap}
+        .board-tools{padding:8px 0}
+        .search-box input{padding:9px 0}
+        .tabs{flex-wrap:nowrap;overflow-x:auto;margin-top:8px;padding-bottom:3px;scrollbar-width:none}
+        .tabs::-webkit-scrollbar{display:none}
+        .tab{flex:none}
         .group-count{margin-left:0}
       }
       @media (prefers-reduced-motion: reduce){
         html{scroll-behavior:auto}
-        .soc::before{transition:none}
-        .row{transition:none}
+        .soc::before,.row,.sell-panel{transition:none}
         .row:hover{transform:none}
+      }
+
+      /* ---------- HẢI TRÌNH: thuyền chạy theo độ cuộn ---------- */
+      .voyage{position:fixed;top:0;left:0;right:0;height:4px;z-index:40;pointer-events:none;background:rgba(6,32,47,.7)}
+      .voyage-fill{height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:repeating-linear-gradient(115deg,var(--gold) 0 7px,var(--gold-deep) 7px 12px)}
+      .voyage-ship{position:absolute;top:1px;left:0;width:24px;height:18px;color:var(--gold);filter:drop-shadow(0 2px 3px rgba(0,0,0,.7))}
+      .board-tools{padding-top:18px}
+
+      /* ---------- SƯƠNG MÙ + ĐỐM LỬA Ở HERO ---------- */
+      .fog{position:absolute;left:-30%;width:160%;height:45%;pointer-events:none;opacity:.5;filter:blur(26px);
+        background:radial-gradient(40% 60% at 25% 60%,rgba(190,225,230,.5),transparent 70%),radial-gradient(35% 55% at 70% 45%,rgba(190,225,230,.38),transparent 70%)}
+      .fog-a{bottom:6%;animation:fogDrift 26s ease-in-out infinite alternate}
+      .fog-b{bottom:24%;opacity:.3;animation:fogDrift 38s ease-in-out infinite alternate-reverse}
+      @keyframes fogDrift{from{transform:translateX(-7%)}to{transform:translateX(9%)}}
+      .embers{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+      .embers i{position:absolute;bottom:-10px;width:5px;height:5px;border-radius:50%;background:#ffc95e;box-shadow:0 0 10px 3px rgba(255,170,60,.7);opacity:0;animation:ember 11s linear infinite}
+      .embers i:nth-child(1){left:8%;animation-delay:0s}
+      .embers i:nth-child(2){left:22%;animation-delay:3.4s;animation-duration:14s}
+      .embers i:nth-child(3){left:37%;animation-delay:6.2s}
+      .embers i:nth-child(4){left:49%;animation-delay:1.6s;animation-duration:15s}
+      .embers i:nth-child(5){left:61%;animation-delay:8s;animation-duration:12s}
+      .embers i:nth-child(6){left:72%;animation-delay:4.6s}
+      .embers i:nth-child(7){left:84%;animation-delay:9.5s;animation-duration:16s}
+      .embers i:nth-child(8){left:94%;animation-delay:2.4s;animation-duration:13s}
+      @keyframes ember{0%{transform:translate(0,0);opacity:0}12%{opacity:.95}70%{opacity:.5}100%{transform:translate(38px,-520px);opacity:0}}
+      .hero-inner{z-index:1}
+
+      /* ---------- HIỆN DẦN KHI CUỘN (chỉ bật khi có JS) ---------- */
+      .reveal{opacity:0}
+      .reveal.in{opacity:1;animation:mistUp .85s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:var(--d,0ms)}
+      .reveal.in[data-reveal="left"]{animation-name:sailLeft}
+      .reveal.in[data-reveal="right"]{animation-name:sailRight}
+      @keyframes mistUp{from{opacity:0;transform:translateY(34px) scale(.97);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+      @keyframes sailLeft{from{opacity:0;transform:translateX(-46px) rotate(-1.5deg);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+      @keyframes sailRight{from{opacity:0;transform:translateX(46px) rotate(1.5deg);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+
+      /* ---------- LA BÀN ---------- */
+      .sec-wrap{position:relative}
+      .compass{position:absolute;top:-14px;right:18px;width:124px;height:124px;color:var(--gold);opacity:.3;transform:rotate(var(--spin,0deg));pointer-events:none}
+      @media(max-width:760px){.compass{display:none}}
+      .live-note{display:flex;align-items:center;gap:9px;margin:10px 0 0;font-size:.88rem;font-weight:700;color:#7ce0c8}
+      .live-dot{width:9px;height:9px;flex:none;border-radius:50%;background:#34d6ae;animation:livePulse 2s ease-out infinite}
+      @keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(52,214,174,.65)}100%{box-shadow:0 0 0 10px rgba(52,214,174,0)}}
+
+      /* ---------- CỘNG ĐỒNG ---------- */
+      .crew-band{
+        display:flex;flex-wrap:wrap;align-items:center;gap:18px 22px;margin-top:20px;padding:22px 24px;
+        background:linear-gradient(115deg,var(--red-deep),var(--red) 55%,#a51f16);
+        border:3px solid var(--gold);border-radius:10px;box-shadow:var(--shadow);
+      }
+      .crew-fox{width:84px;height:84px;flex:none;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))}
+      .crew-text{flex:1 1 280px;min-width:0}
+      .crew-text h3{margin:0 0 4px;font-family:var(--display);font-weight:400;letter-spacing:.04em;font-size:1.9rem;line-height:1.1}
+      .crew-text p{margin:0;color:#ffe3dc;font-size:.95rem;line-height:1.55}
+      .crew-actions{display:flex;flex-wrap:wrap;gap:12px}
+      .btn-zalo{background:#0068ff;color:#fff;box-shadow:0 5px 0 #0048b3,0 14px 24px rgba(0,0,0,.3)}
+      .btn-zalo:hover{background:#2b80ff}
+      .social-grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))!important}
+      @media(max-width:560px){
+        .crew-actions,.crew-actions .btn{width:100%;justify-content:center}
+      }
+
+      /* ---------- NÚT NGÔN NGỮ + TÀI KHOẢN ---------- */
+      .hero-tools{margin-left:auto;display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:9px}
+      .lang-switch{display:flex;padding:3px;border-radius:999px;background:rgba(4,30,46,.78);border:1.5px solid rgba(249,189,58,.55)}
+      .lang-switch button{border:0;background:none;color:#fff;font-weight:800;font-size:.8rem;padding:6px 11px;border-radius:999px;cursor:pointer}
+      .lang-switch button[aria-pressed="true"]{background:var(--gold);color:#231300}
+      .auth-btn{border:0;background:var(--gold);color:#231300;box-shadow:0 3px 0 var(--gold-deep);font-weight:800;font-size:.86rem;padding:9px 15px;border-radius:999px;cursor:pointer}
+      .auth-btn:hover{background:#ffd364}
+      .auth-btn[hidden],.auth-user[hidden]{display:none}
+      .auth-user{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:800;font-size:.88rem;color:var(--gold);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+      .auth-dialog{
+        width:min(400px,calc(100vw - 32px));padding:0;border:3px solid var(--parch-edge);border-radius:8px;
+        background:linear-gradient(170deg,var(--parch),var(--parch-2));color:var(--ink);box-shadow:var(--shadow);
+      }
+      .auth-dialog::backdrop{background:rgba(0,10,18,.72)}
+      .auth-dialog form{position:relative;display:flex;flex-direction:column;gap:12px;padding:18px 20px 16px}
+      .auth-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border:0;border-radius:7px;background:rgba(44,26,13,.14);color:var(--ink);font-size:1.5rem;line-height:1;font-weight:800;cursor:pointer}
+      .auth-tabs{display:flex;gap:16px;padding-right:40px;border-bottom:2px dashed var(--parch-edge)}
+      .auth-tabs button{border:0;background:none;padding:2px 0 6px;font-family:var(--display);font-size:1.45rem;letter-spacing:.04em;color:var(--ink-soft);cursor:pointer}
+      .auth-tabs button[aria-pressed="true"]{color:var(--red);border-bottom:3px solid var(--red);margin-bottom:-2px}
+      .auth-dialog label{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:.86rem}
+      .auth-dialog label[hidden]{display:none}
+      .auth-dialog input{width:100%;padding:10px 12px;font:inherit;font-weight:600;color:var(--ink);background:#fff8e8;border:2px solid var(--parch-edge);border-radius:7px;color-scheme:light}
+      .auth-dialog input:focus{outline:0;border-color:var(--red)}
+      .auth-error{margin:0;font-size:.84rem;font-weight:700;color:var(--red-deep)}
+      .auth-error:empty{display:none}
+      .auth-submit{padding:12px;border:0;border-radius:9px;background:var(--red);color:#fff;font-weight:800;font-size:.95rem;cursor:pointer;box-shadow:0 3px 0 var(--red-deep)}
+      .auth-submit:hover{background:#dc3226}
+      .auth-submit:disabled{opacity:.6;cursor:wait}
+      .auth-note{margin:0;font-size:.76rem;line-height:1.5;color:var(--ink-soft)}
+      @media(max-width:560px){
+        .hero-top{flex-wrap:wrap}
+        .hero-brand{flex:1 1 150px;min-width:0}
+        .hero-brand b{font-size:1.05rem}
+        .hero-tools{width:100%;justify-content:flex-start}
+      }
+      @media (prefers-reduced-motion: reduce){
+        .fog,.embers i,.live-dot{animation:none}
+        .embers{display:none}
+      }
+      /* ---------- MÀN HÌNH NHỎ: ưu tiên chỗ cho nội dung ---------- */
+      @media(max-width:1023px){
+        .board-tools{position:static;padding-top:12px}
+        .tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}
+        .tabs::-webkit-scrollbar{display:none}
+        .tab{flex:none}
+        .sell-panel{overflow-y:auto}
+        .sell-lines{flex:none;overflow:visible}
+        body.has-cart .sell-bar{padding-top:6px;padding-bottom:calc(6px + env(safe-area-inset-bottom))}
+        .zalo-float{width:52px;height:52px}
+        body.has-cart .zalo-float{bottom:68px}
+      }
+      @media(max-width:560px){
+        .hero-title{margin-top:20px}
+        .hero-inner{padding-bottom:58px}
+      }
+      @media(max-height:480px){
+        .sell-panel{max-height:100vh;max-height:100dvh;border-radius:0}
       }
     </style>
   </head>
   <body>
 
+    <!-- Thanh hải trình: con thuyền chạy theo độ cuộn trang -->
+    <div class="voyage" aria-hidden="true">
+      <div class="voyage-fill" id="voyageFill"></div>
+      <svg class="voyage-ship" id="voyageShip" viewBox="0 0 32 24" fill="currentColor"><path d="M15 1v14H5l10-14Zm2 3 9 11h-9V4ZM2 17h28l-4 6H6l-4-6Z"/></svg>
+    </div>
+
     <!-- ================= HERO ================= -->
-    <header class="hero">
+    <header class="hero" id="hero">
       <div class="hero-shade"></div>
-      <svg class="hero-waves" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0 36 Q 180 10 360 32 T 720 28 T 1080 34 T 1440 26 V64 H0 Z" fill="#38bdf8" opacity=".28"/><path d="M0 48 Q 240 26 480 44 T 960 42 T 1440 44 V64 H0 Z" fill="#0369a1" opacity=".4"/></svg>
+      <div class="fog fog-a" aria-hidden="true"></div>
+      <div class="fog fog-b" aria-hidden="true"></div>
+      <div class="embers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <svg class="hero-waves" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0 36 Q 180 10 360 32 T 720 28 T 1080 34 T 1440 26 V64 H0 Z" fill="#10506e" opacity=".55"/><path d="M0 48 Q 240 26 480 44 T 960 42 T 1440 44 V64 H0 Z" fill="#06202f"/></svg>
       <div class="hero-inner wrap">
         <div class="hero-top">
-          <img class="hero-logo" src="assets/logo.png" alt="Logo GegeTeam — cáo cam đeo tai nghe" />
+          <img class="hero-logo" src="assets/logo.png" alt="Logo GegeTeam" />
           <div class="hero-brand">
-            <b>GEGETEAM · NHÀ CÁO</b>
-            <span>Bảng giá item Blox Fruits</span>
+            <b data-i18n="brand">GEGETEAM · NHÀ CÁO</b>
+            <span data-i18n="brand_sub">Thu mua trái ác quỷ Blox Fruits</span>
           </div>
-          <a class="hero-cta-top" href="#bang-gia">Xem bảng giá</a>
+          <div class="hero-tools">
+            <div class="lang-switch" role="group" aria-label="Language">
+              <button type="button" data-lang="vi">VI</button>
+              <button type="button" data-lang="en">EN</button>
+            </div>
+            <span class="auth-user" id="authUser" hidden></span>
+            <button type="button" class="auth-btn" id="authOpen" data-i18n="auth_login">Đăng nhập</button>
+            <button type="button" class="auth-btn" id="authLogout" data-i18n="auth_logout" hidden>Đăng xuất</button>
+          </div>
         </div>
 
-        <h1 class="hero-title">BLOX<br /><span class="fruit-word">FRUITS</span></h1>
-        <div class="hero-featured" aria-label="Các trái nổi bật trong game Blox Fruits">
-          <span class="hf-tile"><img src="assets/items/kitsune.png" alt="Kitsune — trái cáo chín đuôi trong Blox Fruits" /></span>
-          <span class="hf-tile"><img src="assets/items/west-dragon.png" alt="West Dragon — trái rồng trong Blox Fruits" /></span>
-          <span class="hf-tile"><img src="assets/items/galaxy-empyrean-kitsune.png" alt="Galaxy Empyrean Kitsune trong Blox Fruits" /></span>
+        <h1 class="hero-title">ROBLOX<br /><span class="fruit-word">FRUITS</span></h1>
+        <div class="hero-featured" aria-hidden="true">
+          <span class="hf-tile"><img src="assets/items/kitsune.png" alt="" /></span>
+          <span class="hf-tile"><img src="assets/items/west-dragon.png" alt="" /></span>
+          <span class="hf-tile"><img src="assets/items/galaxy-empyrean-kitsune.png" alt="" /></span>
         </div>
-        <p class="hero-sub">Tra giá nhanh 46 item Blox Fruits tại Nhà Cáo: trái gốc, đột biến, skin limited và các item hiếm — gom hết vào một bảng giá duy nhất.</p>
-        <p class="hero-slogan">Đam mê đủ lớn. Anh em đủ chất.</p>
-
-        <div class="hero-chips">
-          <span class="hero-chip"><b>46</b> item</span>
-          <span class="hero-chip"><b>4</b> nhóm hàng</span>
-          <span class="hero-chip">Trái gốc · Đột biến · Skin · Limited</span>
-        </div>
+        <p class="hero-sub" data-i18n="hero_sub">Có trái ác quỷ muốn bán? Chọn item và số lượng, xem ngay số tiền nhận được bằng tiền Việt và USDT rồi gửi phiếu cho Nhà Cáo.</p>
+        <p class="hero-slogan" data-i18n="slogan">Đam mê đủ lớn. Anh em đủ chất.</p>
 
         <div class="hero-actions">
           <a class="btn btn-gold" href="#bang-gia">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m6 11 6 6 6-6"/><path d="M4 21h16"/></svg>
-            Xem bảng giá
+            <span data-i18n="cta_sell">Xem trái ác quỷ</span>
           </a>
-          <a class="btn btn-ghost" href="#tim-hieu">Tìm hiểu item</a>
+          <a class="btn btn-gold" href="#tim-hieu" data-i18n="cta_learn">Tìm hiểu trái ác quỷ</a>
         </div>
       </div>
     </header>
 
     <!-- ================= PRICE BOARD ================= -->
     <section id="bang-gia">
-      <div class="wrap">
-        <div class="sec-head">
-          <h2>Bảng báo giá <span class="accent">Blox Fruits</span></h2>
-        </div>
-        <p class="sec-note">Giá hiển thị ngay trên từng thẻ item để tra nhanh. Gõ tên item vào ô tìm kiếm hoặc chọn nhóm để lọc nhanh — trái, skin và item limited đều có mặt đầy đủ tại đây.</p>
+      <div class="wrap sec-wrap">
+        <svg class="compass" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="38" stroke-dasharray="2 5"/><path d="M50 8 58 50 50 92 42 50Z" fill="currentColor" fill-opacity=".35"/><path d="M8 50 50 42 92 50 50 58Z"/></svg>
+        <h2 data-reveal="left" data-i18n="board_title">Bảng giá <span class="accent">thu mua</span></h2>
+        <p class="sec-note" data-reveal="up" data-i18n="board_note">Bấm “Thêm vào phiếu” ở item bạn có, phiếu sẽ tự cộng tổng tiền bằng VND và USDT. Gõ tên item hoặc chọn nhóm để tìm nhanh.</p>
+        <p class="live-note" data-reveal="up"><span class="live-dot"></span><span data-i18n="live_note">Giá được cập nhật liên tục, theo sát thị trường.</span></p>
 
-        <div class="board-tools">
-          <div class="search-row">
-            <label class="search-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-              <input id="searchInput" type="search" placeholder="Tìm item… ví dụ: Kitsune, Dragon, Dog Blade" autocomplete="off" />
-            </label>
+        <div class="market">
+          <div class="market-main">
+            <div class="board-tools">
+              <div class="search-row">
+                <label class="search-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                  <input id="searchInput" type="search" autocomplete="off" />
+                </label>
+              </div>
+              <div class="tabs" id="tabs" role="tablist"></div>
+            </div>
+
+            <div id="board"></div>
+            <div class="empty" id="emptyState" data-i18n="empty">Không tìm thấy item nào khớp. Thử gõ tên khác nhé — ví dụ “Dragon”, “Pain” hoặc “Blade”.</div>
+
+            <div class="board-foot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".5" fill="currentColor"/></svg>
+              <p style="margin:0" data-i18n="board_foot">Item chưa có giá hoặc cần chốt đơn, anh em nhắn <a href="https://zalo.me/0936854505" target="_blank" rel="noopener"><b>Admin</b></a> để team trả lời trực tiếp.</p>
+            </div>
           </div>
-          <div class="tabs" id="tabs" role="tablist"></div>
-        </div>
 
-        <div id="board"></div>
-        <div class="empty" id="emptyState">Không tìm thấy item nào khớp. Thử gõ tên khác nhé — ví dụ “Dragon”, “Pain” hoặc “Blade”.</div>
-
-        <div class="board-foot">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".5" fill="currentColor"/></svg>
-          <p style="margin:0">Giá của từng item đang được Nhà Cáo cập nhật. Trong lúc chờ bảng giá lên đủ, anh em cứ nhắn <a href="https://zalo.me/0936854505" target="_blank" rel="noopener"><b>Zalo admin</b></a> hoặc <a href="https://www.facebook.com/GegeTeam.net/" target="_blank" rel="noopener"><b>Fanpage GegeTeam</b></a> để hỏi giá item mình cần — team trả lời trực tiếp.</p>
+          <aside class="sell-panel" id="sellPanel">
+            <div class="sell-head">
+              <div>
+                <h3 data-i18n="sell_title">Phiếu bán trái</h3>
+                <small><span id="sumCount">0</span> <span data-i18n="sell_chosen">item đã chọn</span></small>
+              </div>
+              <button type="button" class="sell-close" id="sellClose">×</button>
+            </div>
+            <div class="sell-empty" id="sellEmpty" data-i18n="sell_empty">Chưa có trái nào. Chọn item trong bảng giá để tính tiền nhé.</div>
+            <ul class="sell-lines" id="sellLines"></ul>
+            <div class="sell-sum" aria-live="polite">
+              <div class="sum-label" data-i18n="sell_receive">Bạn nhận được</div>
+              <div class="sum-vnd" id="sumVnd">0 ₫</div>
+              <div class="sum-usdt" id="sumUsdt">≈ 0.0000 USDT</div>
+              <p class="sum-rate" id="sumRate"></p>
+              <button type="button" class="sell-send" id="sellSend" disabled data-i18n="sell_send">Sao chép phiếu &amp; mở Zalo</button>
+              <p class="sell-toast" id="sellToast" role="status"></p>
+              <button type="button" class="sell-clear" id="sellClear" hidden data-i18n="sell_clear">Xóa hết phiếu</button>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
     <!-- ================= LEARN ================= -->
     <section id="tim-hieu">
-      <div class="wrap">
-        <h2>Tìm hiểu <span class="accent">item</span></h2>
-        <p class="sec-note">Bốn nhóm item trên bảng giá khác nhau ở điểm nào? Đọc nhanh phần này để khỏi nhầm trái gốc với skin — nhầm là mua hớ liền.</p>
+      <div class="wrap sec-wrap">
+        <h2 data-reveal="left" data-i18n="learn_title">Tìm hiểu <span class="accent">trái ác quỷ</span></h2>
+        <p class="sec-note" data-reveal="up" data-i18n="learn_note">Bốn nhóm item trên bảng giá khác nhau ở điểm nào? Đọc nhanh phần này để khỏi nhầm trái gốc với skin — nhầm là bán hớ liền.</p>
 
         <div class="learn-grid">
-          <div class="learn-card">
-            <h3><span class="learn-dot" style="background:#0284c7"></span>Trái gốc</h3>
-            <p>Trái Blox Fruit “xịn”: <b>ăn vào là dùng được sức mạnh của trái đó</b> — hóa cáo chín đuôi với Kitsune, hóa rồng với Dragon, điều khiển không gian với Control… Đây là nhóm item có giá trị sử dụng trực tiếp trong game, từ farm (Buddha) tới PvP và di chuyển (Portal).</p>
+          <div class="learn-card" data-reveal="left">
+            <h3><span class="learn-dot" style="background:#0284c7"></span><span data-i18n="learn_base_t">Trái gốc</span></h3>
+            <p data-i18n="learn_base">Trái Blox Fruit “xịn”: <b>ăn vào là dùng được sức mạnh của trái đó</b> — hóa cáo chín đuôi với Kitsune, hóa rồng với Dragon, điều khiển không gian với Control… Đây là nhóm item có giá trị sử dụng trực tiếp trong game, từ farm (Buddha) tới PvP và di chuyển (Portal).</p>
           </div>
-          <div class="learn-card">
-            <h3><span class="learn-dot" style="background:#db2777"></span>Đột biến · Mutation</h3>
-            <p>Phiên bản khác hẳn của một trái gốc: <b>đổi cả bộ chiêu và phải cày mastery riêng</b>, không dùng chung với bản thường. Werewolf là đột biến của Tiger, Fiend là đột biến của Yeti, còn Empyrean (Galaxy / Crimson) là đột biến của Kitsune. Hàng hiếm, số lượng ít nên thường nằm trong nhóm giá cao nhất.</p>
+          <div class="learn-card" data-reveal="right">
+            <h3><span class="learn-dot" style="background:#db2777"></span><span data-i18n="learn_mut_t">Đột biến · Mutation</span></h3>
+            <p data-i18n="learn_mut">Phiên bản khác hẳn của một trái gốc: <b>đổi cả bộ chiêu và phải cày mastery riêng</b>, không dùng chung với bản thường. Werewolf là đột biến của Tiger, Fiend là đột biến của Yeti, còn Empyrean (Galaxy / Crimson) là đột biến của Kitsune. Hàng hiếm, số lượng ít nên thường nằm trong nhóm giá cao nhất.</p>
           </div>
-          <div class="learn-card">
-            <h3><span class="learn-dot" style="background:#ea580c"></span>Skin Limited / Chromatic</h3>
-            <p>Skin chỉ <b>đổi ngoại hình, màu sắc và hiệu ứng</b> cho đẹp — <b>không đổi sát thương hay chiêu thức</b>, và <b>phải có đúng trái gốc</b> thì skin mới phát huy được. Ví dụ: Azura, Thermite, Nuclear là skin của Bomb; Emerald, Rose Quartz, Ruby là skin của Diamond; Matrix, Requiem là skin của Eagle; Runic Fiend là skin dành cho Fiend Yeti; Ember là skin của Dragon (West).</p>
+          <div class="learn-card" data-reveal="left">
+            <h3><span class="learn-dot" style="background:#ea580c"></span><span data-i18n="learn_skin_t">Skin Limited / Chromatic</span></h3>
+            <p data-i18n="learn_skin">Skin chỉ <b>đổi ngoại hình, màu sắc và hiệu ứng</b> cho đẹp — <b>không đổi sát thương hay chiêu thức</b>, và <b>phải có đúng trái gốc</b> thì skin mới phát huy được. Ví dụ: Azura, Thermite, Nuclear là skin của Bomb; Emerald, Rose Quartz, Ruby là skin của Diamond; Matrix, Requiem là skin của Eagle; Runic Fiend là skin dành cho Fiend Yeti; Ember là skin của Dragon (West).</p>
           </div>
-          <div class="learn-card">
-            <h3><span class="learn-dot" style="background:#0f766e"></span>Item Limited khác</h3>
-            <p>Không phải trái: <b>Dog Blade</b> là cây kiếm Mythical limited của sự kiện Dog House (và Rabid Dog Blade là bản skin Rabid của nó), còn <b>Vibes Frame</b> và <b>DogHouse</b> là voucher “Frame Break” — khung trang trí profile trong game. Riêng <b>Meme</b> là trái limited mang tính sưu tầm.</p>
+          <div class="learn-card" data-reveal="right">
+            <h3><span class="learn-dot" style="background:#0f766e"></span><span data-i18n="learn_lim_t">Item Limited khác</span></h3>
+            <p data-i18n="learn_lim">Không phải trái: <b>Dog Blade</b> là cây kiếm Mythical limited của sự kiện Dog House (và Rabid Dog Blade là bản skin Rabid của nó), còn <b>Vibes Frame</b> và <b>DogHouse</b> là voucher “Frame Break” — khung trang trí profile trong game. Riêng <b>Meme</b> là trái limited mang tính sưu tầm.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= SOCIAL ================= -->
+    <!-- ================= COMMUNITY ================= -->
     <section id="cong-dong">
-      <div class="wrap">
-        <h2>Cộng đồng <span class="accent">Nhà Cáo</span></h2>
-        <p class="sec-note">Theo dõi GegeTeam để cập nhật giá mới, kèo trade và các đợt hàng limited về kho.</p>
+      <div class="wrap sec-wrap">
+        <h2 data-reveal="left" data-i18n="crew_title">Lên tàu cùng <span class="accent">Nhà Cáo</span></h2>
+        <p class="sec-note" data-reveal="up" data-i18n="crew_note">Gia nhập cộng đồng GegeTeam để theo dõi giá mới và kèo trade cùng anh em.</p>
 
-        <div class="social-grid">
-          <a class="soc" style="--brand:#1877f2" href="https://www.facebook.com/GegeTeam.net/" target="_blank" rel="noopener">
-            <span class="soc-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5Z"/></svg></span>
-            <span><b>Fanpage GegeTeam</b><span>Kênh thông báo chính thức của team</span></span>
-            <span class="arrow">→</span>
-          </a>
-          <a class="soc" style="--brand:#1877f2" href="https://www.facebook.com/groups/457999664580741" target="_blank" rel="noopener">
-            <span class="soc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-            <span><b>Group Facebook</b><span>Cộng đồng trao đổi của anh em Nhà Cáo</span></span>
-            <span class="arrow">→</span>
-          </a>
-          <a class="soc" style="--brand:#0068ff" href="https://zalo.me/g/kmxfzujpa7akgrijn5hk" target="_blank" rel="noopener">
-            <span class="soc-ic">Zalo</span>
-            <span><b>Group Zalo</b><span>Nhóm chat nhanh, hỏi giá tại đây</span></span>
-            <span class="arrow">→</span>
-          </a>
-          <a class="soc" style="--brand:#5865f2" href="https://discord.gg/t2fPyUPGY" target="_blank" rel="noopener">
-            <span class="soc-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.6 5.3A16 16 0 0 0 14.6 4l-.2.5a13 13 0 0 1 3.4 1.7 12.4 12.4 0 0 0-11.6 0A13 13 0 0 1 9.6 4.5L9.4 4a16 16 0 0 0-4 1.3C2.8 9.2 2.1 13 2.4 16.7c1.6 1.2 3.2 2 4.8 2.5l.8-1.2c-.6-.2-1.1-.5-1.6-.8l.4-.3a14 14 0 0 0 10.4 0l.4.3c-.5.3-1 .6-1.6.8l.8 1.2c1.6-.5 3.2-1.3 4.8-2.5.4-4.3-.7-8-2.9-11.4ZM8.7 15.3c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm6.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z"/></svg></span>
-            <span><b>Discord GegeTeam</b><span>Server Discord chính thức của team</span></span>
-            <span class="arrow">→</span>
-          </a>
-          <a class="soc" style="--brand:#f59e0b" href="#bang-gia">
-            <span class="soc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
-            <span><b>Bảng giá Blox Fruits</b><span>Quay lại tra giá 46 item</span></span>
-            <span class="arrow">→</span>
-          </a>
-          <a class="soc" style="--brand:#0d9488" href="https://zalo.me/0936854505" target="_blank" rel="noopener">
-            <span class="soc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"/></svg></span>
-            <span><b>Zalo Admin</b><span>Nhắn trực tiếp admin Nhà Cáo</span></span>
-            <span class="arrow">→</span>
-          </a>
+        <div class="crew-band" data-reveal="up">
+          <img class="crew-fox" src="assets/logo.png" alt="" />
+          <div class="crew-text">
+            <h3 data-i18n="crew_band_t">Cộng đồng GegeTeam</h3>
+            <p data-i18n="crew_band">Tất cả kênh của team gom về một nơi. Vào trang cộng đồng hoặc nhảy thẳng vào nhóm Zalo.</p>
+          </div>
+          <div class="crew-actions">
+            <a class="btn btn-gold" href="https://gegeteam.xyz" target="_blank" rel="noopener" data-i18n="crew_site">Vào trang cộng đồng</a>
+            <a class="btn btn-zalo" href="https://zalo.me/g/kmxfzujpa7akgrijn5hk" target="_blank" rel="noopener" data-i18n="crew_zalo">Vào nhóm Zalo</a>
+          </div>
         </div>
 
-        <div class="contact-band">
-          <div class="cb-text">
-            <h3> Cần hỏi giá item nào đó ngay?</h3>
-            <p>Nhắn thẳng cho Nhà Cáo — báo item anh em cần, team kiểm tra và trả lời trực tiếp.</p>
-          </div>
-          <div class="cb-btns">
-            <a class="cb-btn zalo" href="https://zalo.me/0936854505" target="_blank" rel="noopener">Liên hệ Zalo</a>
-            <a class="cb-btn" href="https://www.facebook.com/GegeTeam.net/" target="_blank" rel="noopener">Nhắn Fanpage</a>
-          </div>
+        <div class="social-grid">
+          <a class="soc" data-reveal="up" style="--brand:#1877f2" href="https://www.facebook.com/GegeTeam.net/" target="_blank" rel="noopener">
+            <span class="soc-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5Z"/></svg></span>
+            <span><b>Fanpage</b><span data-i18n="soc_page">Thông báo chính thức</span></span>
+          </a>
+          <a class="soc" data-reveal="up" style="--brand:#5865f2" href="https://discord.gg/t2fPyUPGY" target="_blank" rel="noopener">
+            <span class="soc-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.6 5.3A16 16 0 0 0 14.6 4l-.2.5a13 13 0 0 1 3.4 1.7 12.4 12.4 0 0 0-11.6 0A13 13 0 0 1 9.6 4.5L9.4 4a16 16 0 0 0-4 1.3C2.8 9.2 2.1 13 2.4 16.7c1.6 1.2 3.2 2 4.8 2.5l.8-1.2c-.6-.2-1.1-.5-1.6-.8l.4-.3a14 14 0 0 0 10.4 0l.4.3c-.5.3-1 .6-1.6.8l.8 1.2c1.6-.5 3.2-1.3 4.8-2.5.4-4.3-.7-8-2.9-11.4ZM8.7 15.3c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm6.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z"/></svg></span>
+            <span><b>Discord</b><span data-i18n="soc_discord">Server chính thức của team</span></span>
+          </a>
+          <a class="soc" data-reveal="up" style="--brand:#0d9488" href="https://zalo.me/0936854505" target="_blank" rel="noopener">
+            <span class="soc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"/></svg></span>
+            <span><b>Admin</b><span data-i18n="soc_admin">Hỗ trợ trực tiếp</span></span>
+          </a>
         </div>
       </div>
     </section>
 
     <footer>
-      <div class="wrap">
-        <b>GegeTeam · Nhà Cáo</b> — Bảng giá item Blox Fruits (Roblox). Giá trên trang được team cập nhật theo từng thời điểm; khi cần chốt giá một item cụ thể, anh em liên hệ trực tiếp Zalo admin hoặc Fanpage để được báo giá tại thời điểm nhắn.
+      <div class="wrap" data-i18n="footer">
+        <b>GegeTeam · Nhà Cáo</b> — Bảng giá thu mua item Blox Fruits (Roblox). Giá được cập nhật liên tục theo sát thị trường; khi cần chốt đơn, anh em liên hệ Admin hoặc Fanpage để được xác nhận.
       </div>
     </footer>
 
-    <a class="zalo-float" href="https://zalo.me/0936854505" target="_blank" rel="noopener" aria-label="Chat Zalo với admin GegeTeam">
+    <div class="sell-bar">
+      <div class="bar-total"><b id="barVnd">0 ₫</b><span id="barUsdt"></span></div>
+      <button type="button" class="bar-open" id="barOpen" data-i18n="bar_open">Xem phiếu</button>
+    </div>
+    <div class="sell-backdrop" id="sellBackdrop"></div>
+
+    <a class="zalo-float" id="adminFloat" href="https://zalo.me/0936854505" target="_blank" rel="noopener">
       <img src="assets/fox-support.png" alt="" />
     </a>
+
+    <!-- ================= ĐĂNG NHẬP / ĐĂNG KÝ (không bắt buộc) ================= -->
+    <dialog class="auth-dialog" id="authDialog">
+      <form id="authForm" novalidate>
+        <button type="button" class="auth-x" id="authClose">×</button>
+        <div class="auth-tabs">
+          <button type="button" data-mode="login" data-i18n="auth_login">Đăng nhập</button>
+          <button type="button" data-mode="register" data-i18n="auth_register">Đăng ký</button>
+        </div>
+        <label><span data-i18n="auth_user">Tên tài khoản</span>
+          <input id="authName" name="username" autocomplete="username" maxlength="20" required />
+        </label>
+        <label><span data-i18n="auth_pass">Mật khẩu</span>
+          <input id="authPass" name="password" type="password" maxlength="72" required />
+        </label>
+        <label id="authConfirmWrap"><span data-i18n="auth_confirm">Nhập lại mật khẩu</span>
+          <input id="authConfirm" type="password" autocomplete="new-password" maxlength="72" />
+        </label>
+        <p class="auth-error" id="authError" role="alert"></p>
+        <button type="submit" class="auth-submit" id="authSubmit"></button>
+        <p class="auth-note" data-i18n="auth_note">Không cần tài khoản vẫn dùng được toàn bộ trang. Tài khoản hiện chỉ lưu trên trình duyệt này.</p>
+      </form>
+    </dialog>
 
     <script>
       /* ============================================================
          DỮ LIỆU BẢNG GIÁ BLOX FRUITS — GegeTeam
-         Backend nạp giá sau: điền priceVnd / priceUsdt cho từng item.
-         - priceVnd: giá VND (số nguyên, ví dụ 65000)
-         - priceUsdt: giá USDT (số, ví dụ 2.5) — để null nếu chưa dùng
+         Khi có database: chỉ cần nạp lại ITEMS và 2 hằng số bên dưới.
+         - rate: số trong bảng giá của team, để null nếu chưa có giá
          - image: đường dẫn ảnh icon của item (assets/items/<id>.png)
-         Item nào còn null sẽ hiển thị "Đang cập nhật".
+         Item nào có rate = null sẽ hiện "Đang cập nhật" và không tính tiền.
          ============================================================ */
+      var VND_PER_RATE = 1000;   /* 1 rate = bao nhiêu VND */
+      var VND_PER_USDT = 26500;  /* 1 USDT = bao nhiêu VND */
+      var ZALO_URL = "https://zalo.me/0936854505";
+
       var CATEGORIES = [
-        { id: "base",    label: "Trái gốc",               css: "g-base",    desc: "Ăn vào là dùng được sức mạnh của trái đó." },
-        { id: "mutation",label: "Đột biến · Mutation",    css: "g-mutation",desc: "Bản khác của trái gốc — đổi cả chiêu, mastery riêng." },
-        { id: "skin",    label: "Skin Limited / Chromatic", css: "g-skin",  desc: "Chỉ đổi ngoại hình & hiệu ứng, cần có đúng trái gốc." },
-        { id: "limited", label: "Item Limited khác",      css: "g-limited", desc: "Kiếm, khung profile và item sưu tầm limited." }
+        { id: "base", css: "g-base",
+          vi: { label: "Trái gốc", short: "Trái gốc", desc: "Ăn vào là dùng được sức mạnh của trái đó." },
+          en: { label: "Base fruits", short: "Base fruit", desc: "Eat one and you get its power." } },
+        { id: "mutation", css: "g-mutation",
+          vi: { label: "Đột biến · Mutation", short: "Đột biến", desc: "Bản khác của trái gốc — đổi cả chiêu, mastery riêng." },
+          en: { label: "Mutations", short: "Mutation", desc: "A new version of a base fruit, with its own moves and mastery." } },
+        { id: "skin", css: "g-skin",
+          vi: { label: "Skin Limited / Chromatic", short: "Skin", desc: "Chỉ đổi ngoại hình & hiệu ứng, cần có đúng trái gốc." },
+          en: { label: "Limited / Chromatic skins", short: "Skin", desc: "Only changes looks and effects; needs the matching base fruit." } },
+        { id: "limited", css: "g-limited",
+          vi: { label: "Item Limited khác", short: "Limited", desc: "Kiếm, khung profile và item sưu tầm limited." },
+          en: { label: "Other limited items", short: "Limited", desc: "Swords, profile frames and limited collectibles." } }
       ];
 
       var ITEMS = [
         /* ---- Trái gốc (15) ---- */
-        { id: "kitsune", image: "assets/items/kitsune.png",     name: "Kitsune",     category: "base", color: "#2563eb", note: "Hệ Beast · Mythical — cáo chín đuôi, hóa hình cực mạnh", priceVnd: null, priceUsdt: null },
-        { id: "west-dragon", image: "assets/items/west-dragon.png", name: "West Dragon", category: "base", color: "#dc2626", note: "Hệ Beast · Mythical — rồng phương Tây", priceVnd: null, priceUsdt: null },
-        { id: "east-dragon", image: "assets/items/east-dragon.png", name: "East Dragon", category: "base", color: "#e11d48", note: "Hệ Beast · Mythical — rồng phương Đông", priceVnd: null, priceUsdt: null },
-        { id: "dough", image: "assets/items/dough.png",       name: "Dough",       category: "base", color: "#f59e0b", note: "Hệ Elemental — bột dẻo, combo PvP rất khó chịu", priceVnd: null, priceUsdt: null },
-        { id: "control", image: "assets/items/control.png",     name: "Control",     category: "base", color: "#7c3aed", note: "Hệ Natural — điều khiển mọi thứ trong phòng Room", priceVnd: null, priceUsdt: null },
-        { id: "spirit", image: "assets/items/spirit.png",      name: "Spirit",      category: "base", color: "#64748b", note: "Hệ Natural — triệu hồi linh hồn hỗ trợ chiến đấu", priceVnd: null, priceUsdt: null },
-        { id: "lightning", image: "assets/items/lightning.png",   name: "Lightning",   category: "base", color: "#0ea5e9", note: "Hệ Elemental — sấm sét, tốc độ di chuyển cao", priceVnd: null, priceUsdt: null },
-        { id: "gas", image: "assets/items/gas.png",         name: "Gas",         category: "base", color: "#a855f7", note: "Hệ Elemental — khí gas, sát thương diện rộng", priceVnd: null, priceUsdt: null },
-        { id: "buddha", image: "assets/items/buddha.png",      name: "Buddha",      category: "base", color: "#eab308", note: "Hệ Beast — hóa Phật vàng, farm quái cực khỏe", priceVnd: null, priceUsdt: null },
-        { id: "venom", image: "assets/items/venom.png",       name: "Venom",       category: "base", color: "#9333ea", note: "Hệ Natural — độc, gây sát thương theo thời gian", priceVnd: null, priceUsdt: null },
-        { id: "magnet", image: "assets/items/magnet.png",      name: "Magnet",      category: "base", color: "#475569", note: "Hệ Natural — từ trường, hút và đẩy kim loại", priceVnd: null, priceUsdt: null },
-        { id: "yeti", image: "assets/items/yeti.png",        name: "Yeti",        category: "base", color: "#38bdf8", note: "Hệ Beast — người tuyết, băng giá và sức mạnh thô", priceVnd: null, priceUsdt: null },
-        { id: "tiger", image: "assets/items/tiger.png",       name: "Tiger",       category: "base", color: "#f97316", note: "Hệ Beast — hổ, tốc độ và combo áp sát", priceVnd: null, priceUsdt: null },
-        { id: "portal", image: "assets/items/portal.png",      name: "Portal",      category: "base", color: "#06b6d4", note: "Hệ Natural — mở cổng dịch chuyển khắp map", priceVnd: null, priceUsdt: null },
-        { id: "t-rex", image: "assets/items/t-rex.png",       name: "T-Rex",       category: "base", color: "#65a30d", note: "Hệ Beast — khủng long bạo chúa, càn quét mạnh", priceVnd: null, priceUsdt: null },
+        { id: "kitsune", image: "assets/items/kitsune.png",     name: "Kitsune",     category: "base", color: "#2563eb", note: "Hệ Beast · Mythical — cáo chín đuôi, hóa hình cực mạnh", noteEn: "Beast · Mythical — nine-tailed fox with a very strong transformation", rate: 67 },
+        { id: "west-dragon", image: "assets/items/west-dragon.png", name: "West Dragon", category: "base", color: "#dc2626", note: "Hệ Beast · Mythical — rồng phương Tây", noteEn: "Beast · Mythical — western dragon", rate: 290 },
+        { id: "east-dragon", image: "assets/items/east-dragon.png", name: "East Dragon", category: "base", color: "#e11d48", note: "Hệ Beast · Mythical — rồng phương Đông", noteEn: "Beast · Mythical — eastern dragon", rate: 260 },
+        { id: "dough", image: "assets/items/dough.png",       name: "Dough",       category: "base", color: "#f59e0b", note: "Hệ Elemental — bột dẻo, combo PvP rất khó chịu", noteEn: "Elemental — sticky dough with nasty PvP combos", rate: 9 },
+        { id: "control", image: "assets/items/control.png",     name: "Control",     category: "base", color: "#7c3aed", note: "Hệ Natural — điều khiển mọi thứ trong phòng Room", noteEn: "Natural — control everything inside your Room", rate: 17 },
+        { id: "spirit", image: "assets/items/spirit.png",      name: "Spirit",      category: "base", color: "#64748b", note: "Hệ Natural — triệu hồi linh hồn hỗ trợ chiến đấu", noteEn: "Natural — summons spirits to fight alongside you", rate: null },
+        { id: "lightning", image: "assets/items/lightning.png",   name: "Lightning",   category: "base", color: "#0ea5e9", note: "Hệ Elemental — sấm sét, tốc độ di chuyển cao", noteEn: "Elemental — lightning with high movement speed", rate: 6 },
+        { id: "gas", image: "assets/items/gas.png",         name: "Gas",         category: "base", color: "#a855f7", note: "Hệ Elemental — khí gas, sát thương diện rộng", noteEn: "Elemental — gas with wide-area damage", rate: 16 },
+        { id: "buddha", image: "assets/items/buddha.png",      name: "Buddha",      category: "base", color: "#eab308", note: "Hệ Beast — hóa Phật vàng, farm quái cực khỏe", noteEn: "Beast — golden Buddha form, great for farming", rate: 3 },
+        { id: "venom", image: "assets/items/venom.png",       name: "Venom",       category: "base", color: "#9333ea", note: "Hệ Natural — độc, gây sát thương theo thời gian", noteEn: "Natural — poison that deals damage over time", rate: 3 },
+        { id: "magnet", image: "assets/items/magnet.png",      name: "Magnet",      category: "base", color: "#475569", note: "Hệ Natural — từ trường, hút và đẩy kim loại", noteEn: "Natural — magnetism that pulls and pushes metal", rate: 60 },
+        { id: "yeti", image: "assets/items/yeti.png",        name: "Yeti",        category: "base", color: "#38bdf8", note: "Hệ Beast — người tuyết, băng giá và sức mạnh thô", noteEn: "Beast — yeti with ice and raw strength", rate: 17 },
+        { id: "tiger", image: "assets/items/tiger.png",       name: "Tiger",       category: "base", color: "#f97316", note: "Hệ Beast — hổ, tốc độ và combo áp sát", noteEn: "Beast — tiger with speed and close-range combos", rate: 17 },
+        { id: "portal", image: "assets/items/portal.png",      name: "Portal",      category: "base", color: "#06b6d4", note: "Hệ Natural — mở cổng dịch chuyển khắp map", noteEn: "Natural — opens portals across the map", rate: 3 },
+        { id: "t-rex", image: "assets/items/t-rex.png",       name: "T-Rex",       category: "base", color: "#65a30d", note: "Hệ Beast — khủng long bạo chúa, càn quét mạnh", noteEn: "Beast — T-Rex with powerful sweeping attacks", rate: 3 },
 
         /* ---- Đột biến / Mutation (4) ---- */
-        { id: "galaxy-empyrean-kitsune", image: "assets/items/galaxy-empyrean-kitsune.png",  name: "Galaxy Empyrean Kitsune",  category: "mutation", color: "#6d28d9", note: "Đột biến của Kitsune — bản Galaxy, cực hiếm", priceVnd: null, priceUsdt: null },
-        { id: "crimson-empyrean-kitsune", image: "assets/items/crimson-empyrean-kitsune.png", name: "Crimson Empyrean Kitsune", category: "mutation", color: "#be123c", note: "Đột biến của Kitsune — bản Crimson", priceVnd: null, priceUsdt: null },
-        { id: "werewolf", image: "assets/items/werewolf.png",  name: "Werewolf",  category: "mutation", color: "#334155", note: "Đột biến của Tiger — hóa sói", priceVnd: null, priceUsdt: null },
-        { id: "fiend-yeti", image: "assets/items/fiend-yeti.png", name: "Fiend Yeti", category: "mutation", color: "#7e22ce", note: "Đột biến của Yeti — bản Fiend", priceVnd: null, priceUsdt: null },
+        { id: "galaxy-empyrean-kitsune", image: "assets/items/galaxy-empyrean-kitsune.png",  name: "Galaxy Empyrean Kitsune",  category: "mutation", color: "#6d28d9", note: "Đột biến của Kitsune — bản Galaxy, cực hiếm", noteEn: "Kitsune mutation — Galaxy version, extremely rare", rate: 910 },
+        { id: "crimson-empyrean-kitsune", image: "assets/items/crimson-empyrean-kitsune.png", name: "Crimson Empyrean Kitsune", category: "mutation", color: "#be123c", note: "Đột biến của Kitsune — bản Crimson", noteEn: "Kitsune mutation — Crimson version", rate: 650 },
+        { id: "werewolf", image: "assets/items/werewolf.png",  name: "Werewolf",  category: "mutation", color: "#334155", note: "Đột biến của Tiger — hóa sói", noteEn: "Tiger mutation — wolf form", rate: 130 },
+        { id: "fiend-yeti", image: "assets/items/fiend-yeti.png", name: "Fiend Yeti", category: "mutation", color: "#7e22ce", note: "Đột biến của Yeti — bản Fiend", noteEn: "Yeti mutation — Fiend version", rate: 130 },
 
         /* ---- Skin Limited / Chromatic (22) ---- */
-        { id: "ember-west-dragon", image: "assets/items/ember-west-dragon.png", name: "Ember West Dragon", category: "skin", color: "#ea580c", note: "Skin của Dragon (West) — bản Ember", priceVnd: null, priceUsdt: null },
-        { id: "arcsteel-magnet", image: "assets/items/arcsteel-magnet.png",   name: "Arcsteel Magnet",   category: "skin", color: "#0ea5e9", note: "Skin của Magnet — bản Arcsteel", priceVnd: null, priceUsdt: null },
-        { id: "red-lightning", image: "assets/items/red-lightning.png",     name: "Red Lightning",     category: "skin", color: "#ef4444", note: "Skin của Lightning — bản Red", priceVnd: null, priceUsdt: null },
-        { id: "yellow-lightning", image: "assets/items/yellow-lightning.png",  name: "Yellow Lightning",  category: "skin", color: "#facc15", note: "Skin của Lightning — bản Yellow", priceVnd: null, priceUsdt: null },
-        { id: "purple-lightning", image: "assets/items/purple-lightning.png",  name: "Purple Lightning",  category: "skin", color: "#a855f7", note: "Skin của Lightning — bản Purple", priceVnd: null, priceUsdt: null },
-        { id: "green-lightning", image: "assets/items/green-lightning.png",   name: "Green Lightning",   category: "skin", color: "#22c55e", note: "Skin của Lightning — bản Green", priceVnd: null, priceUsdt: null },
-        { id: "super-spirit-pain", image: "assets/items/super-spirit-pain.png", name: "Super Spirit Pain", category: "skin", color: "#8b5cf6", note: "Skin của Pain — bản Super Spirit", priceVnd: null, priceUsdt: null },
-        { id: "celestial-pain", image: "assets/items/celestial-pain.png",    name: "Celestial Pain",    category: "skin", color: "#6366f1", note: "Skin của Pain — bản Celestial", priceVnd: null, priceUsdt: null },
-        { id: "frustration-pain", image: "assets/items/frustration-pain.png",  name: "Frustration Pain",  category: "skin", color: "#f43f5e", note: "Skin của Pain — bản Frustration", priceVnd: null, priceUsdt: null },
-        { id: "sadness-pain", image: "assets/items/sadness-pain.png",      name: "Sadness Pain",      category: "skin", color: "#3b82f6", note: "Skin của Pain — bản Sadness", priceVnd: null, priceUsdt: null },
-        { id: "torment-pain", image: "assets/items/torment-pain.png",      name: "Torment Pain",      category: "skin", color: "#581c87", note: "Skin của Pain — bản Torment", priceVnd: null, priceUsdt: null },
-        { id: "divine-portal", image: "assets/items/divine-portal.png",     name: "Divine Portal",     category: "skin", color: "#fbbf24", note: "Skin của Portal — bản Divine", priceVnd: null, priceUsdt: null },
-        { id: "starlight-gravity", image: "assets/items/starlight-gravity.png", name: "Starlight Gravity", category: "skin", color: "#312e81", note: "Skin của Gravity — bản Starlight", priceVnd: null, priceUsdt: null },
-        { id: "runic-fiend", image: "assets/items/runic-fiend.png",       name: "Runic Fiend",       category: "skin", color: "#0d9488", note: "Skin dành cho Fiend (Yeti) — bản Runic", priceVnd: null, priceUsdt: null },
-        { id: "azura", image: "assets/items/azura.png",       name: "Azura",       category: "skin", color: "#2563eb", note: "Skin của Bomb — bản Azura", priceVnd: null, priceUsdt: null },
-        { id: "thermite", image: "assets/items/thermite.png",    name: "Thermite",    category: "skin", color: "#dc2626", note: "Skin của Bomb — bản Thermite", priceVnd: null, priceUsdt: null },
-        { id: "nuclear", image: "assets/items/nuclear.png",     name: "Nuclear",     category: "skin", color: "#84cc16", note: "Skin của Bomb — bản Nuclear", priceVnd: null, priceUsdt: null },
-        { id: "emerald", image: "assets/items/emerald.png",     name: "Emerald",     category: "skin", color: "#059669", note: "Skin của Diamond — bản Emerald", priceVnd: null, priceUsdt: null },
-        { id: "rose-quartz", image: "assets/items/rose-quartz.png", name: "Rose Quartz", category: "skin", color: "#f472b6", note: "Skin của Diamond — bản Rose Quartz", priceVnd: null, priceUsdt: null },
-        { id: "ruby", image: "assets/items/ruby.png",        name: "Ruby",        category: "skin", color: "#e11d48", note: "Skin của Diamond — bản Ruby", priceVnd: null, priceUsdt: null },
-        { id: "matrix", image: "assets/items/matrix.png",      name: "Matrix",      category: "skin", color: "#16a34a", note: "Skin của Eagle — bản Matrix", priceVnd: null, priceUsdt: null },
-        { id: "requiem", image: "assets/items/requiem.png",     name: "Requiem",     category: "skin", color: "#7c2d12", note: "Skin của Eagle — bản Requiem", priceVnd: null, priceUsdt: null },
+        { id: "ember-west-dragon", image: "assets/items/ember-west-dragon.png", name: "Ember West Dragon", category: "skin", color: "#ea580c", note: "Skin của Dragon (West) — bản Ember", noteEn: "Dragon (West) skin — Ember version", rate: 650 },
+        { id: "arcsteel-magnet", image: "assets/items/arcsteel-magnet.png",   name: "Arcsteel Magnet",   category: "skin", color: "#0ea5e9", note: "Skin của Magnet — bản Arcsteel", noteEn: "Magnet skin — Arcsteel version", rate: 230 },
+        { id: "red-lightning", image: "assets/items/red-lightning.png",     name: "Red Lightning",     category: "skin", color: "#ef4444", note: "Skin của Lightning — bản Red", noteEn: "Lightning skin — Red version", rate: 240 },
+        { id: "yellow-lightning", image: "assets/items/yellow-lightning.png",  name: "Yellow Lightning",  category: "skin", color: "#facc15", note: "Skin của Lightning — bản Yellow", noteEn: "Lightning skin — Yellow version", rate: 17 },
+        { id: "purple-lightning", image: "assets/items/purple-lightning.png",  name: "Purple Lightning",  category: "skin", color: "#a855f7", note: "Skin của Lightning — bản Purple", noteEn: "Lightning skin — Purple version", rate: 500 },
+        { id: "green-lightning", image: "assets/items/green-lightning.png",   name: "Green Lightning",   category: "skin", color: "#22c55e", note: "Skin của Lightning — bản Green", noteEn: "Lightning skin — Green version", rate: 31 },
+        { id: "super-spirit-pain", image: "assets/items/super-spirit-pain.png", name: "Super Spirit Pain", category: "skin", color: "#8b5cf6", note: "Skin của Pain — bản Super Spirit", noteEn: "Pain skin — Super Spirit version", rate: 290 },
+        { id: "celestial-pain", image: "assets/items/celestial-pain.png",    name: "Celestial Pain",    category: "skin", color: "#6366f1", note: "Skin của Pain — bản Celestial", noteEn: "Pain skin — Celestial version", rate: 75 },
+        { id: "frustration-pain", image: "assets/items/frustration-pain.png",  name: "Frustration Pain",  category: "skin", color: "#f43f5e", note: "Skin của Pain — bản Frustration", noteEn: "Pain skin — Frustration version", rate: 57 },
+        { id: "sadness-pain", image: "assets/items/sadness-pain.png",      name: "Sadness Pain",      category: "skin", color: "#3b82f6", note: "Skin của Pain — bản Sadness", noteEn: "Pain skin — Sadness version", rate: 67 },
+        { id: "torment-pain", image: "assets/items/torment-pain.png",      name: "Torment Pain",      category: "skin", color: "#581c87", note: "Skin của Pain — bản Torment", noteEn: "Pain skin — Torment version", rate: 16 },
+        { id: "divine-portal", image: "assets/items/divine-portal.png",     name: "Divine Portal",     category: "skin", color: "#fbbf24", note: "Skin của Portal — bản Divine", noteEn: "Portal skin — Divine version", rate: 260 },
+        { id: "starlight-gravity", image: "assets/items/starlight-gravity.png", name: "Starlight Gravity", category: "skin", color: "#312e81", note: "Skin của Gravity — bản Starlight", noteEn: "Gravity skin — Starlight version", rate: 34 },
+        { id: "runic-fiend", image: "assets/items/runic-fiend.png",       name: "Runic Fiend",       category: "skin", color: "#0d9488", note: "Skin dành cho Fiend (Yeti) — bản Runic", noteEn: "Skin for Fiend (Yeti) — Runic version", rate: 170 },
+        { id: "azura", image: "assets/items/azura.png",       name: "Azura",       category: "skin", color: "#2563eb", note: "Skin của Bomb — bản Azura", noteEn: "Bomb skin — Azura version", rate: 60 },
+        { id: "thermite", image: "assets/items/thermite.png",    name: "Thermite",    category: "skin", color: "#dc2626", note: "Skin của Bomb — bản Thermite", noteEn: "Bomb skin — Thermite version", rate: 60 },
+        { id: "nuclear", image: "assets/items/nuclear.png",     name: "Nuclear",     category: "skin", color: "#84cc16", note: "Skin của Bomb — bản Nuclear", noteEn: "Bomb skin — Nuclear version", rate: 60 },
+        { id: "emerald", image: "assets/items/emerald.png",     name: "Emerald",     category: "skin", color: "#059669", note: "Skin của Diamond — bản Emerald", noteEn: "Diamond skin — Emerald version", rate: 30 },
+        { id: "rose-quartz", image: "assets/items/rose-quartz.png", name: "Rose Quartz", category: "skin", color: "#f472b6", note: "Skin của Diamond — bản Rose Quartz", noteEn: "Diamond skin — Rose Quartz version", rate: 30 },
+        { id: "ruby", image: "assets/items/ruby.png",        name: "Ruby",        category: "skin", color: "#e11d48", note: "Skin của Diamond — bản Ruby", noteEn: "Diamond skin — Ruby version", rate: 15 },
+        { id: "matrix", image: "assets/items/matrix.png",      name: "Matrix",      category: "skin", color: "#16a34a", note: "Skin của Eagle — bản Matrix", noteEn: "Eagle skin — Matrix version", rate: 60 },
+        { id: "requiem", image: "assets/items/requiem.png",     name: "Requiem",     category: "skin", color: "#7c2d12", note: "Skin của Eagle — bản Requiem", noteEn: "Eagle skin — Requiem version", rate: 30 },
 
         /* ---- Item Limited khác (5) ---- */
-        { id: "meme", image: "assets/items/meme.png",            name: "Meme",            category: "limited", color: "#f59e0b", note: "Trái limited hệ meme — giá trị sưu tầm", priceVnd: null, priceUsdt: null },
-        { id: "dog-blade", image: "assets/items/dog-blade.png",       name: "Dog Blade",       category: "limited", color: "#78716c", note: "Kiếm Mythical limited — sự kiện Dog House", noStem: true, priceVnd: null, priceUsdt: null },
-        { id: "rabid-dog-blade", image: "assets/items/rabid-dog-blade.png", name: "Rabid Dog Blade", category: "limited", color: "#991b1b", note: "Skin Rabid của Dog Blade — cực hiếm", noStem: true, priceVnd: null, priceUsdt: null },
-        { id: "vibes-frame", image: "assets/items/vibes-frame.png",     name: "Vibes Frame",     category: "limited", color: "#db2777", note: "Voucher Frame Break — khung trang trí profile", noStem: true, priceVnd: null, priceUsdt: null },
-        { id: "doghouse", image: "assets/items/doghouse.png",        name: "DogHouse",        category: "limited", color: "#b45309", note: "Voucher Frame Break — khung DogHouse", noStem: true, priceVnd: null, priceUsdt: null }
+        { id: "meme", image: "assets/items/meme.png",            name: "Meme",            category: "limited", color: "#f59e0b", note: "Trái limited hệ meme — giá trị sưu tầm", noteEn: "Limited meme fruit — collector value", rate: 590 },
+        { id: "dog-blade", image: "assets/items/dog-blade.png",       name: "Dog Blade",       category: "limited", color: "#78716c", note: "Kiếm Mythical limited — sự kiện Dog House", noteEn: "Limited Mythical sword — Dog House event", noStem: true, rate: 195 },
+        { id: "rabid-dog-blade", image: "assets/items/rabid-dog-blade.png", name: "Rabid Dog Blade", category: "limited", color: "#991b1b", note: "Skin Rabid của Dog Blade — cực hiếm", noteEn: "Rabid skin of Dog Blade — extremely rare", noStem: true, rate: 1850 },
+        { id: "vibes-frame", image: "assets/items/vibes-frame.png",     name: "Vibes Frame",     category: "limited", color: "#db2777", note: "Voucher Frame Break — khung trang trí profile", noteEn: "Frame Break voucher — profile frame", noStem: true, rate: 1040 },
+        { id: "doghouse", image: "assets/items/doghouse.png",        name: "DogHouse",        category: "limited", color: "#b45309", note: "Voucher Frame Break — khung DogHouse", noteEn: "Frame Break voucher — DogHouse frame", noStem: true, rate: 1300 }
       ];
+
+      /* ---------- Ngôn ngữ ----------
+         Tiếng Việt lấy nguyên từ HTML, tiếng Anh nằm trong EN_HTML (cùng key data-i18n). */
+      var EN_HTML = {
+        brand: "GEGETEAM · FOX HOUSE",
+        brand_sub: "We buy Blox Fruits devil fruits",
+        auth_login: "Log in",
+        auth_logout: "Log out",
+        auth_register: "Sign up",
+        auth_user: "Username",
+        auth_pass: "Password",
+        auth_confirm: "Confirm password",
+        auth_note: "You can use the whole site without an account. Accounts are currently stored in this browser only.",
+        hero_sub: "Got a devil fruit to sell? Pick your items and quantities, see exactly what you get in USDT, then send the slip to Fox House.",
+        slogan: "Big passion. Real crew.",
+        cta_sell: "See devil fruits",
+        cta_learn: "Learn about devil fruits",
+        board_title: 'Buying <span class="accent">prices</span>',
+        board_note: "Tap “Add to slip” on the items you own and the slip totals your payout in USDT. Type a name or pick a category to find items fast.",
+        live_note: "Prices are updated continuously to track the market.",
+        empty: "No matching items. Try another name, such as “Dragon”, “Pain” or “Blade”.",
+        board_foot: 'For items without a price, or to close a deal, message <a href="https://zalo.me/0936854505" target="_blank" rel="noopener"><b>Admin</b></a> and the team will reply directly.',
+        sell_title: "Sell slip",
+        sell_chosen: "selected",
+        sell_empty: "No fruits yet. Pick items from the price board to calculate your payout.",
+        sell_receive: "You receive",
+        sell_send: "Copy slip & open Zalo",
+        sell_clear: "Clear slip",
+        bar_open: "View slip",
+        learn_title: 'Learn about <span class="accent">devil fruits</span>',
+        learn_note: "How do the four categories differ? A quick read so you don’t confuse a base fruit with a skin and undersell it.",
+        learn_base_t: "Base fruits",
+        learn_base: "The real Blox Fruits: <b>eat one and you get its power</b> — turn into a nine-tailed fox with Kitsune, a dragon with Dragon, control space with Control… These have direct in-game value, from farming (Buddha) to PvP and travel (Portal).",
+        learn_mut_t: "Mutations",
+        learn_mut: "A very different version of a base fruit: <b>a new moveset with its own mastery to grind</b>, not shared with the normal version. Werewolf mutates from Tiger, Fiend from Yeti, and Empyrean (Galaxy / Crimson) from Kitsune. They are rare and usually among the highest priced.",
+        learn_skin_t: "Limited / Chromatic skins",
+        learn_skin: "Skins <b>only change looks, colors and effects</b> — <b>not damage or moves</b> — and <b>you need the matching base fruit</b> to use them. For example: Azura, Thermite and Nuclear are Bomb skins; Emerald, Rose Quartz and Ruby are Diamond skins; Matrix and Requiem are Eagle skins; Runic Fiend is for Fiend Yeti; Ember is for Dragon (West).",
+        learn_lim_t: "Other limited items",
+        learn_lim: "Not fruits: <b>Dog Blade</b> is a limited Mythical sword from the Dog House event (Rabid Dog Blade is its Rabid skin), while <b>Vibes Frame</b> and <b>DogHouse</b> are “Frame Break” vouchers — in-game profile frames. <b>Meme</b> is a limited collectible fruit.",
+        crew_title: 'Come aboard with <span class="accent">Fox House</span>',
+        crew_note: "Join the GegeTeam community to follow new prices and trade deals with the crew.",
+        crew_band_t: "GegeTeam community",
+        crew_band: "All the team’s channels in one place. Visit the community site or jump straight into the Zalo group.",
+        crew_site: "Visit community site",
+        crew_zalo: "Join Zalo group",
+        soc_page: "Official announcements",
+        soc_discord: "The team’s official server",
+        soc_admin: "Direct support",
+        footer: "<b>GegeTeam · Fox House</b> — Blox Fruits (Roblox) item buying prices. Prices are updated continuously to track the market; to close a deal, contact Admin or the Fanpage for confirmation."
+      };
+      var TEXT = {
+        vi: {
+          title: "GegeTeam — Bảng giá thu mua Blox Fruits",
+          search: "Tìm item… ví dụ: Kitsune, Dragon, Dog Blade",
+          all: "Tất cả", items: "item", item_one: "item", add: "+ Thêm vào phiếu", ask: "Hỏi giá Admin",
+          pending: "Đang cập nhật", pending_sub: "Nhắn Admin để hỏi giá",
+          dec: "Bớt một ", inc: "Thêm một ", each: "/cái", close: "Đóng", slip: "Phiếu bán trái", admin: "Hỗ trợ trực tiếp từ Admin",
+          rate: "Tỷ giá: 1 USDT = {r}. Admin xác nhận lại khi chốt đơn.",
+          bar: "{n} · ≈ {u}",
+          copied: "Đã sao chép phiếu — dán vào khung chat Zalo để gửi Admin.",
+          copy_fail: "Không sao chép được — hãy nhắn Admin tên item và số lượng ở phiếu này.",
+          msg_head: "Nhà Cáo ơi, mình muốn bán:", msg_total: "Tổng", msg_account: "Tài khoản",
+          err_name: "Tên tài khoản gồm 3–20 ký tự: chữ không dấu, số, dấu . _ -",
+          err_pass: "Mật khẩu cần ít nhất 6 ký tự.",
+          err_confirm: "Hai mật khẩu không khớp.",
+          err_taken: "Tên tài khoản này đã có người dùng trên trình duyệt này.",
+          err_wrong: "Sai tên tài khoản hoặc mật khẩu.",
+          err_secure: "Trình duyệt chưa cho phép bảo mật mật khẩu. Hãy mở trang qua HTTPS.",
+          err_storage: "Trình duyệt đang chặn lưu dữ liệu nên chưa đăng nhập được."
+        },
+        en: {
+          title: "GegeTeam — Blox Fruits buying prices",
+          search: "Search items… e.g. Kitsune, Dragon, Dog Blade",
+          all: "All", items: "items", item_one: "item", add: "+ Add to slip", ask: "Ask Admin",
+          pending: "Updating", pending_sub: "Message Admin for a price",
+          dec: "Remove one ", inc: "Add one ", each: " each", close: "Close", slip: "Sell slip", admin: "Direct support from Admin",
+          rate: "Admin confirms the final amount when closing the deal.",
+          bar: "{n}",
+          copied: "Slip copied — paste it into the Zalo chat to send to Admin.",
+          copy_fail: "Couldn’t copy — please message Admin the item names and quantities on this slip.",
+          msg_head: "Hi Fox House, I want to sell:", msg_total: "Total", msg_account: "Account",
+          err_name: "Usernames are 3–20 characters: letters, numbers, . _ -",
+          err_pass: "Password must be at least 6 characters.",
+          err_confirm: "The passwords don’t match.",
+          err_taken: "This username is already used in this browser.",
+          err_wrong: "Wrong username or password.",
+          err_secure: "This browser can’t secure the password here. Please open the site over HTTPS.",
+          err_storage: "The browser is blocking storage, so you can’t log in right now."
+        }
+      };
+      var LANG_KEY = "gegeteam-lang";
+      var lang = "vi";
+      try { if (localStorage.getItem(LANG_KEY) === "en") lang = "en"; } catch (e) {}
+      function T(k){ return TEXT[lang][k]; }
+      function countLabel(n){ return n + " " + T(n === 1 ? "item_one" : "items"); }
 
       /* ---------- Render ---------- */
       var board = document.getElementById("board");
       var tabsEl = document.getElementById("tabs");
       var searchInput = document.getElementById("searchInput");
       var emptyState = document.getElementById("emptyState");
+      var sellPanel = document.getElementById("sellPanel");
+      var sellBackdrop = document.getElementById("sellBackdrop");
+      var sellLinesEl = document.getElementById("sellLines");
+      var sellEmpty = document.getElementById("sellEmpty");
+      var sellToast = document.getElementById("sellToast");
+      var sellSend = document.getElementById("sellSend");
+      var sellClear = document.getElementById("sellClear");
       var activeCat = "all";
+      var firstRender = true;
+      var CART_KEY = "gegeteam-sell-cart";
+      var MAX_QTY = 99;
+      var ITEM_BY_ID = {};
+      ITEMS.forEach(function(i){ ITEM_BY_ID[i.id] = i; });
+      var cart = loadCart();
 
       function norm(s){
         return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d");
       }
-      function fmtVnd(n){ return n.toLocaleString("vi-VN") + " ₫"; }
-      function fmtUsdt(n){ return n.toLocaleString("en-US", { maximumFractionDigits: 4 }) + " USDT"; }
+      function esc(s){
+        return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+      }
+      function noteOf(item){ return lang === "en" ? item.noteEn : item.note; }
+      function vndOf(item){ return item.rate * VND_PER_RATE; }
+      /* USDT lấy 4 số lẻ, tính từ đơn giá đã làm tròn để các dòng trên phiếu cộng khớp tổng */
+      var USDT_SCALE = 10000;
+      function unitsOf(item){ return Math.round(vndOf(item) / VND_PER_USDT * USDT_SCALE); }
+      function fmtVnd(n){ return n.toLocaleString(lang === "en" ? "en-US" : "vi-VN") + " ₫"; }
+      function fmtUsdt(units){ return (units / USDT_SCALE).toLocaleString("en-US", { minimumFractionDigits: 4, maximumFractionDigits: 4 }) + " USDT"; }
+      /* Tiếng Anh chỉ hiện USDT, tiếng Việt hiện VND trước */
+      function fmtMain(vnd, units){ return lang === "en" ? fmtUsdt(units) : fmtVnd(vnd); }
 
       function priceHtml(item){
-        if (item.priceVnd == null && item.priceUsdt == null){
-          return '<span class="price-pending">Đang cập nhật</span>';
+        if (item.rate == null){
+          return '<div class="price-pending">' + T("pending") + '</div><div class="price-sub">' + T("pending_sub") + "</div>";
         }
-        var out = "";
-        if (item.priceVnd != null) out += '<div class="price-value">= ' + fmtVnd(item.priceVnd) + "</div>";
-        if (item.priceUsdt != null) out += '<div class="price-value"><small>= ' + fmtUsdt(item.priceUsdt) + "</small></div>";
-        return out;
+        var main = '<div class="price-vnd">' + fmtMain(vndOf(item), unitsOf(item)) + "</div>";
+        return lang === "en" ? main : main + '<div class="price-usdt">≈ ' + fmtUsdt(unitsOf(item)) + "</div>";
       }
 
-      var CAT_COLORS = { base: "#0284c7", mutation: "#db2777", skin: "#ea580c", limited: "#0f766e" };
+      function ctlHtml(item){
+        if (item.rate == null){
+          return '<a class="ask-btn" href="' + ZALO_URL + '" target="_blank" rel="noopener">' + T("ask") + "</a>";
+        }
+        var name = esc(item.name);
+        return '<button type="button" class="add-btn" data-act="inc" data-id="' + esc(item.id) + '">' + T("add") + "</button>"
+          + '<div class="stepper">'
+          + '<button type="button" data-act="dec" data-id="' + esc(item.id) + '" aria-label="' + T("dec") + name + '">−</button>'
+          + '<span class="qty" data-qty>0</span>'
+          + '<button type="button" data-act="inc" data-id="' + esc(item.id) + '" aria-label="' + T("inc") + name + '">+</button>'
+          + "</div>";
+      }
+
+      var CAT_COLORS = { base: "#2ea6e6", mutation: "#ef4a97", skin: "#f47a2c", limited: "#2cc2b2" };
 
       function renderTabs(){
-        var html = '<button class="tab' + (activeCat === "all" ? " active" : "") + '" data-cat="all">Tất cả<span class="cnt">' + ITEMS.length + "</span></button>";
+        var html = '<button class="tab' + (activeCat === "all" ? " active" : "") + '" data-cat="all">' + T("all") + '<span class="cnt">' + ITEMS.length + "</span></button>";
         CATEGORIES.forEach(function(c){
           var n = ITEMS.filter(function(i){ return i.category === c.id; }).length;
-          html += '<button class="tab' + (activeCat === c.id ? " active" : "") + '" data-cat="' + c.id + '" style="--tab-c:' + CAT_COLORS[c.id] + '"><span class="dot"></span>' + c.label + '<span class="cnt">' + n + "</span></button>";
+          html += '<button class="tab' + (activeCat === c.id ? " active" : "") + '" data-cat="' + c.id + '" style="--tab-c:' + CAT_COLORS[c.id] + '"><span class="dot"></span>' + c[lang].label + '<span class="cnt">' + n + "</span></button>";
         });
         tabsEl.innerHTML = html;
         var btns = tabsEl.querySelectorAll(".tab");
@@ -657,30 +1006,390 @@
           var items = ITEMS.filter(function(i){
             if (i.category !== c.id) return false;
             if (!q) return true;
-            return norm(i.name + " " + i.note).indexOf(q) !== -1;
+            return norm(i.name + " " + noteOf(i)).indexOf(q) !== -1;
           });
           if (!items.length) return;
           totalShown += items.length;
+          var t = c[lang];
           html += '<div class="group ' + c.css + '">';
-          html += '<div class="group-head"><span class="group-badge">' + c.label + '</span><span class="group-desc">' + c.desc + '</span><span class="group-count">' + items.length + " item</span></div>";
+          html += '<div class="group-head"><span class="group-badge">' + t.label + '</span><span class="group-desc">' + t.desc + '</span><span class="group-count">' + countLabel(items.length) + "</span></div>";
           html += '<div class="rows">';
           items.forEach(function(i){
-            html += '<div class="row" title="' + i.note + '">'
-              + '<span class="item-img"><img src="' + (i.image || ("assets/items/" + i.id + ".png")) + '" alt="' + i.name + '" loading="lazy" /></span>'
-              + '<div class="row-main"><div class="row-name">' + i.name + '</div>'
-              + (i.note ? '<div class="row-note">' + i.note + '</div>' : '')
-              + '<span class="row-cat">' + c.label + '</span>'
-              + '<div class="row-price">' + priceHtml(i) + "</div></div>"
-              + "</div>";
+            html += '<article class="row" data-item="' + esc(i.id) + '" title="' + esc(noteOf(i)) + '">'
+              + '<span class="row-cat">' + t.short + '</span>'
+              + '<span class="item-img"><img src="' + esc(i.image || ("assets/items/" + i.id + ".png")) + '" alt="' + esc(i.name) + '" loading="lazy" /></span>'
+              + '<div class="row-name">' + esc(i.name) + '</div>'
+              + '<div class="row-note">' + esc(noteOf(i)) + '</div>'
+              + '<div class="row-price">' + priceHtml(i) + '</div>'
+              + '<div class="row-ctl">' + ctlHtml(i) + "</div>"
+              + "</article>";
           });
           html += "</div></div>";
         });
         board.innerHTML = html;
         emptyState.style.display = totalShown ? "none" : "block";
+        syncCards();
+        /* Chỉ lần tải đầu mới hiện dần, lọc hoặc đổi ngôn ngữ thì hiện ngay */
+        if (firstRender){
+          firstRender = false;
+          var cards = board.querySelectorAll(".row");
+          for (var n = 0; n < cards.length; n++){ watchReveal(cards[n], (n % 4) * 70); }
+        }
       }
 
+      /* ---------- Phiếu bán: tính tiền VND + USDT ---------- */
+      function loadCart(){
+        var out = {};
+        try {
+          var saved = JSON.parse(localStorage.getItem(CART_KEY)) || {};
+          Object.keys(saved).forEach(function(id){
+            var q = Math.floor(Number(saved[id]));
+            if (ITEM_BY_ID[id] && ITEM_BY_ID[id].rate != null && q > 0) out[id] = Math.min(q, MAX_QTY);
+          });
+        } catch (e) {}
+        return out;
+      }
+      function saveCart(){
+        try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) {}
+      }
+      function cartLines(){
+        return ITEMS.filter(function(i){ return cart[i.id]; }).map(function(i){
+          return { item: i, qty: cart[i.id], vnd: vndOf(i) * cart[i.id], units: unitsOf(i) * cart[i.id] };
+        });
+      }
+      function cartTotal(lines){
+        return lines.reduce(function(sum, l){ return sum + l.vnd; }, 0);
+      }
+
+      function cartUnits(lines){
+        return lines.reduce(function(sum, l){ return sum + l.units; }, 0);
+      }
+
+      function changeQty(id, delta){
+        var item = ITEM_BY_ID[id];
+        if (!item || item.rate == null) return;
+        var q = Math.min((cart[id] || 0) + delta, MAX_QTY);
+        if (q > 0) cart[id] = q; else delete cart[id];
+        saveCart();
+        sellToast.textContent = "";
+        syncCards();
+        renderSell();
+      }
+
+      function syncCards(){
+        var cards = board.querySelectorAll(".row");
+        for (var i = 0; i < cards.length; i++){
+          var q = cart[cards[i].getAttribute("data-item")] || 0;
+          var wasIn = cards[i].classList.contains("in-cart");
+          var active = document.activeElement;
+          var hadFocus = active && cards[i].contains(active);
+          cards[i].classList.toggle("in-cart", q > 0);
+          var qtyEl = cards[i].querySelector("[data-qty]");
+          if (qtyEl) qtyEl.textContent = q;
+          /* Giữ focus bàn phím khi nút đang bấm bị ẩn đi */
+          if (hadFocus && wasIn !== (q > 0)){
+            var next = cards[i].querySelector(q > 0 ? '.stepper [data-act="inc"]' : ".add-btn");
+            if (next) next.focus();
+          }
+        }
+      }
+
+      function renderSell(){
+        var lines = cartLines();
+        var total = cartTotal(lines);
+        var units = cartUnits(lines);
+        var count = lines.reduce(function(sum, l){ return sum + l.qty; }, 0);
+        sellLinesEl.innerHTML = lines.map(function(l){
+          var name = esc(l.item.name);
+          var id = esc(l.item.id);
+          return '<li class="sell-line">'
+            + '<img src="' + esc(l.item.image) + '" alt="" />'
+            + "<b>" + name + "</b>"
+            + '<span class="amt">' + fmtMain(l.vnd, l.units) + "</span>"
+            + '<div class="stepper">'
+            + '<button type="button" data-act="dec" data-id="' + id + '" aria-label="' + T("dec") + name + '">−</button>'
+            + '<span class="qty">' + l.qty + "</span>"
+            + '<button type="button" data-act="inc" data-id="' + id + '" aria-label="' + T("inc") + name + '">+</button>'
+            + '<span class="unit">' + fmtMain(vndOf(l.item), unitsOf(l.item)) + T("each") + "</span>"
+            + "</div></li>";
+        }).join("");
+        sellEmpty.style.display = lines.length ? "none" : "block";
+        sellLinesEl.style.display = lines.length ? "block" : "none";
+        document.getElementById("sumVnd").textContent = fmtMain(total, units);
+        document.getElementById("sumUsdt").textContent = lang === "en" ? "" : "≈ " + fmtUsdt(units);
+        document.getElementById("sumCount").textContent = count;
+        document.getElementById("barVnd").textContent = fmtMain(total, units);
+        document.getElementById("barUsdt").textContent = T("bar").replace("{n}", countLabel(count)).replace("{u}", fmtUsdt(units));
+        document.getElementById("sumRate").textContent = T("rate").replace("{r}", fmtVnd(VND_PER_USDT));
+        sellSend.disabled = !lines.length;
+        sellClear.hidden = !lines.length;
+        document.body.classList.toggle("has-cart", lines.length > 0);
+        if (!lines.length) setSellOpen(false);
+      }
+
+      function setSellOpen(open){
+        sellPanel.classList.toggle("open", open);
+        sellBackdrop.classList.toggle("open", open);
+      }
+
+      function sellMessage(){
+        var lines = cartLines();
+        var total = cartTotal(lines);
+        var units = cartUnits(lines);
+        var user = AUTH.current();
+        return T("msg_head") + "\n"
+          + lines.map(function(l){ return "- " + l.item.name + " x" + l.qty + " = " + fmtMain(l.vnd, l.units); }).join("\n")
+          + "\n" + T("msg_total") + ": " + fmtMain(total, units) + (lang === "en" ? "" : " (≈ " + fmtUsdt(units) + ")")
+          + (user ? "\n" + T("msg_account") + ": " + user : "");
+      }
+
+      function copyFallback(text){
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta);
+        return ok;
+      }
+      function copyText(text, done){
+        if (navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(copyFallback(text)); });
+        } else {
+          done(copyFallback(text));
+        }
+      }
+
+      function onQtyClick(e){
+        var btn = e.target.closest("[data-act]");
+        if (!btn) return;
+        changeQty(btn.getAttribute("data-id"), btn.getAttribute("data-act") === "inc" ? 1 : -1);
+      }
+      board.addEventListener("click", onQtyClick);
+      sellLinesEl.addEventListener("click", onQtyClick);
+
+      sellSend.addEventListener("click", function(){
+        window.open(ZALO_URL, "_blank", "noopener");
+        copyText(sellMessage(), function(ok){
+          sellToast.textContent = T(ok ? "copied" : "copy_fail");
+        });
+      });
+      sellClear.addEventListener("click", function(){
+        cart = {};
+        saveCart();
+        sellToast.textContent = "";
+        syncCards();
+        renderSell();
+      });
+      document.getElementById("barOpen").addEventListener("click", function(){ setSellOpen(true); });
+      document.getElementById("sellClose").addEventListener("click", function(){ setSellOpen(false); });
+      sellBackdrop.addEventListener("click", function(){ setSellOpen(false); });
+      document.addEventListener("keydown", function(e){ if (e.key === "Escape") setSellOpen(false); });
+
+      /* ---------- Tài khoản (không bắt buộc) ----------
+         Chưa có backend nên tài khoản nằm trong localStorage của trình duyệt, mật khẩu băm PBKDF2.
+         Khi có database: chỉ cần đổi register / login / logout / current sang gọi API. */
+      var AUTH = {
+        USERS_KEY: "gegeteam-users",
+        SESSION_KEY: "gegeteam-session",
+        users: function(){ return JSON.parse(localStorage.getItem(this.USERS_KEY)) || {}; },
+        hash: function(password, salt){
+          var enc = new TextEncoder();
+          return crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveBits"]).then(function(key){
+            return crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: enc.encode(salt), iterations: 200000 }, key, 256);
+          }).then(function(bits){
+            return Array.from(new Uint8Array(bits)).map(function(b){ return b.toString(16).padStart(2, "0"); }).join("");
+          });
+        },
+        ready: function(){
+          if (!window.crypto || !crypto.subtle) return "err_secure";
+          try { localStorage.setItem("gegeteam-test", "1"); localStorage.removeItem("gegeteam-test"); }
+          catch (e) { return "err_storage"; }
+          return null;
+        },
+        register: function(name, password){
+          var self = this;
+          var blocked = this.ready();
+          if (blocked) return Promise.reject(blocked);
+          var id = name.toLowerCase();
+          var users = this.users();
+          if (Object.prototype.hasOwnProperty.call(users, id)) return Promise.reject("err_taken");
+          var salt = Array.from(crypto.getRandomValues(new Uint8Array(16))).map(function(b){ return b.toString(16).padStart(2, "0"); }).join("");
+          return this.hash(password, salt).then(function(hash){
+            users[id] = { name: name, salt: salt, hash: hash };
+            localStorage.setItem(self.USERS_KEY, JSON.stringify(users));
+            localStorage.setItem(self.SESSION_KEY, id);
+          });
+        },
+        login: function(name, password){
+          var self = this;
+          var blocked = this.ready();
+          if (blocked) return Promise.reject(blocked);
+          var id = name.toLowerCase();
+          var users = this.users();
+          if (!Object.prototype.hasOwnProperty.call(users, id)) return Promise.reject("err_wrong");
+          return this.hash(password, users[id].salt).then(function(hash){
+            if (hash !== users[id].hash) throw "err_wrong";
+            localStorage.setItem(self.SESSION_KEY, id);
+          });
+        },
+        logout: function(){
+          try { localStorage.removeItem(this.SESSION_KEY); } catch (e) {}
+        },
+        current: function(){
+          try {
+            var id = localStorage.getItem(this.SESSION_KEY);
+            var users = this.users();
+            return id && Object.prototype.hasOwnProperty.call(users, id) ? users[id].name : null;
+          } catch (e) { return null; }
+        }
+      };
+
+      var authDialog = document.getElementById("authDialog");
+      var authForm = document.getElementById("authForm");
+      var authName = document.getElementById("authName");
+      var authPass = document.getElementById("authPass");
+      var authConfirm = document.getElementById("authConfirm");
+      var authError = document.getElementById("authError");
+      var authSubmit = document.getElementById("authSubmit");
+      var authMode = "login";
+
+      function setAuthMode(mode){
+        authMode = mode;
+        authError.textContent = "";
+        var isReg = mode === "register";
+        document.getElementById("authConfirmWrap").hidden = !isReg;
+        authPass.autocomplete = isReg ? "new-password" : "current-password";
+        authDialog.querySelectorAll("[data-mode]").forEach(function(b){
+          b.setAttribute("aria-pressed", b.getAttribute("data-mode") === mode);
+        });
+        authSubmit.textContent = i18nText(isReg ? "auth_register" : "auth_login");
+      }
+      function renderAuth(){
+        var user = AUTH.current();
+        var userEl = document.getElementById("authUser");
+        userEl.textContent = user || "";
+        userEl.hidden = !user;
+        document.getElementById("authOpen").hidden = !!user;
+        document.getElementById("authLogout").hidden = !user;
+      }
+      document.getElementById("authOpen").addEventListener("click", function(){
+        authForm.reset();
+        setAuthMode("login");
+        authDialog.showModal();
+        authName.focus();
+      });
+      document.getElementById("authClose").addEventListener("click", function(){ authDialog.close(); });
+      document.getElementById("authLogout").addEventListener("click", function(){
+        AUTH.logout();
+        renderAuth();
+      });
+      authDialog.addEventListener("click", function(e){
+        if (e.target === authDialog) authDialog.close();
+        var modeBtn = e.target.closest("[data-mode]");
+        if (modeBtn) setAuthMode(modeBtn.getAttribute("data-mode"));
+      });
+      authForm.addEventListener("submit", function(e){
+        e.preventDefault();
+        var name = authName.value.trim();
+        var pass = authPass.value;
+        var isReg = authMode === "register";
+        var problem = null;
+        if (!/^[A-Za-z0-9._-]{3,20}$/.test(name)) problem = isReg ? "err_name" : "err_wrong";
+        else if (pass.length < 6) problem = isReg ? "err_pass" : "err_wrong";
+        else if (isReg && pass !== authConfirm.value) problem = "err_confirm";
+        if (problem){ authError.textContent = T(problem); return; }
+        authSubmit.disabled = true;
+        authError.textContent = "";
+        (isReg ? AUTH.register(name, pass) : AUTH.login(name, pass)).then(function(){
+          authDialog.close();
+          renderAuth();
+        }).catch(function(code){
+          authError.textContent = T(typeof code === "string" ? code : "err_storage");
+        }).then(function(){
+          authSubmit.disabled = false;
+        });
+      });
+
+      /* ---------- Hiệu ứng khi cuộn ---------- */
+      var calmMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var revealObserver = (!calmMotion && "IntersectionObserver" in window) ? new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("in");
+          revealObserver.unobserve(entry.target);
+        });
+      }, { rootMargin: "0px 0px -8% 0px" }) : null;
+
+      function watchReveal(el, delay){
+        if (!revealObserver) return;
+        if (delay) el.style.setProperty("--d", delay + "ms");
+        el.classList.add("reveal");
+        revealObserver.observe(el);
+      }
+
+      var voyageFill = document.getElementById("voyageFill");
+      var voyageShip = document.getElementById("voyageShip");
+      var compasses = document.querySelectorAll(".compass");
+      var scrollQueued = false;
+      function onScrollFrame(){
+        scrollQueued = false;
+        var y = window.pageYOffset;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var p = max > 0 ? Math.min(y / max, 1) : 0;
+        voyageFill.style.transform = "scaleX(" + p + ")";
+        voyageShip.style.transform = "translateX(" + p * (window.innerWidth - 24) + "px)";
+        if (calmMotion) return;
+        for (var i = 0; i < compasses.length; i++){ compasses[i].style.setProperty("--spin", y * 0.12 + "deg"); }
+      }
+      function queueScroll(){
+        if (scrollQueued) return;
+        scrollQueued = true;
+        requestAnimationFrame(onScrollFrame);
+      }
+      window.addEventListener("scroll", queueScroll, { passive: true });
+      window.addEventListener("resize", queueScroll);
+
+      /* ---------- Áp dụng ngôn ngữ ---------- */
+      var i18nEls = document.querySelectorAll("[data-i18n]");
+      var VI_HTML = {};
+      i18nEls.forEach(function(el){ VI_HTML[el.getAttribute("data-i18n")] = el.innerHTML; });
+      function i18nText(key){
+        return lang === "en" ? EN_HTML[key] : VI_HTML[key];
+      }
+      function applyLang(){
+        document.documentElement.lang = lang;
+        document.title = T("title");
+        i18nEls.forEach(function(el){ el.innerHTML = i18nText(el.getAttribute("data-i18n")); });
+        searchInput.placeholder = T("search");
+        document.querySelectorAll("[data-lang]").forEach(function(b){
+          b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang);
+        });
+        sellPanel.setAttribute("aria-label", T("slip"));
+        document.getElementById("sellClose").setAttribute("aria-label", T("close"));
+        document.getElementById("authClose").setAttribute("aria-label", T("close"));
+        document.getElementById("adminFloat").setAttribute("aria-label", T("admin"));
+        sellToast.textContent = "";
+        setAuthMode(authMode);
+        render();
+        renderSell();
+      }
+      document.querySelectorAll("[data-lang]").forEach(function(b){
+        b.addEventListener("click", function(){
+          lang = this.getAttribute("data-lang");
+          try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+          applyLang();
+        });
+      });
+
       searchInput.addEventListener("input", render);
-      render();
+      document.querySelectorAll("[data-reveal]").forEach(function(el){ watchReveal(el); });
+      applyLang();
+      renderAuth();
+      onScrollFrame();
     </script>
   </body>
 </html>
