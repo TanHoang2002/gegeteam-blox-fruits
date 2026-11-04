@@ -533,6 +533,50 @@
       @media(max-height:480px){
         .sell-panel{max-height:100vh;max-height:100dvh;border-radius:0}
       }
+
+      /* ---------- MÀN HÌNH RỘNG: nội dung giãn ra hai bên và to hơn ---------- */
+      @media(min-width:1440px){
+        html{font-size:17px}
+        .wrap{max-width:min(1760px,92vw);padding-left:clamp(18px,2.5vw,48px);padding-right:clamp(18px,2.5vw,48px)}
+        .hero-inner{padding-top:34px;padding-bottom:96px}
+        .hero-logo{width:88px;height:88px}
+        .hero-sub{max-width:40rem}
+        .hero-featured{top:132px;right:clamp(18px,2.5vw,48px);gap:18px}
+        .hero-featured .hf-tile{width:96px;height:96px}
+        .market{grid-template-columns:minmax(0,1fr) 400px;gap:32px}
+        .rows{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+      }
+      @media(min-width:2000px){
+        html{font-size:20px}
+        .wrap{max-width:94vw}
+        .hero-title{font-size:9rem}
+        .hero-sub{max-width:44rem}
+        .hero-logo{width:100px;height:100px}
+        .hero-featured .hf-tile{width:112px;height:112px}
+        .market{grid-template-columns:minmax(0,1fr) 440px}
+        .rows{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+      }
+
+      /* Logo dẫn về trang chủ GeGe Team */
+      .home-link{display:flex;flex:none;border-radius:50%;transition:transform .2s}
+      .home-link:hover{transform:scale(1.06)}
+
+      /* ---------- ẢNH ĐẦU TRANG FULL MÀN HÌNH (máy tính) ---------- */
+      @media(min-width:1024px){
+        /* Cao bằng màn hình nhưng không vượt tỷ lệ 16:9 của ảnh, để ảnh ít bị cắt nhất */
+        .hero{display:flex;flex-direction:column;min-height:min(100vh,56.25vw);background-position:center 40%}
+        .hero-inner{flex:1;display:flex;flex-direction:column;width:100%}
+        .hero-title{margin-top:auto}
+        .hero-actions{margin-bottom:auto}
+        /* Lớp tối chỉ phủ phần có chữ, phần còn lại để ảnh hiện rõ */
+        .hero-shade{
+          background:
+            linear-gradient(90deg,rgba(3,22,36,.82) 0%,rgba(3,22,36,.5) 24%,rgba(3,22,36,0) 46%),
+            linear-gradient(180deg,rgba(3,22,36,.45) 0%,rgba(3,22,36,0) 16%,rgba(3,22,36,0) 80%,rgba(6,32,47,.9) 100%);
+        }
+        .fog-b{display:none}
+        .fog-a{opacity:.28}
+      }
     </style>
   </head>
   <body>
@@ -552,7 +596,7 @@
       <svg class="hero-waves" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0 36 Q 180 10 360 32 T 720 28 T 1080 34 T 1440 26 V64 H0 Z" fill="#10506e" opacity=".55"/><path d="M0 48 Q 240 26 480 44 T 960 42 T 1440 44 V64 H0 Z" fill="#06202f"/></svg>
       <div class="hero-inner wrap">
         <div class="hero-top">
-          <img class="hero-logo" src="assets/logo.png" alt="Logo GegeTeam" />
+          <a class="home-link" href="/" title="Về trang chủ GeGe Team"><img class="hero-logo" src="assets/logo.png" alt="Về trang chủ GeGe Team" /></a>
           <div class="hero-brand">
             <b data-i18n="brand">GEGETEAM · NHÀ CÁO</b>
             <span data-i18n="brand_sub">Thu mua trái ác quỷ Blox Fruits</span>
@@ -674,7 +718,7 @@
         <p class="sec-note" data-reveal="up" data-i18n="crew_note">Gia nhập cộng đồng GegeTeam để theo dõi giá mới và kèo trade cùng anh em.</p>
 
         <div class="crew-band" data-reveal="up">
-          <img class="crew-fox" src="assets/logo.png" alt="" />
+          <a class="home-link" href="/" title="Về trang chủ GeGe Team"><img class="crew-fox" src="assets/logo.png" alt="Về trang chủ GeGe Team" /></a>
           <div class="crew-text">
             <h3 data-i18n="crew_band_t">Cộng đồng GegeTeam</h3>
             <p data-i18n="crew_band">Tất cả kênh của team gom về một nơi. Vào trang cộng đồng hoặc nhảy thẳng vào nhóm Zalo.</p>
