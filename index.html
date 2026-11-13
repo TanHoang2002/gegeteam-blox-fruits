@@ -293,9 +293,9 @@
       .sum-rate{margin:7px 0 0;font-size:.73rem;line-height:1.45;color:#d9c196}
       .sell-send{
         display:block;width:100%;margin-top:11px;padding:12px;border:0;border-radius:9px;cursor:pointer;
-        background:#0068ff;color:#fff;font-weight:800;font-size:.95rem;
+        background:#5865f2;color:#fff;font-weight:800;font-size:.95rem;
       }
-      .sell-send:hover{background:#2b80ff}
+      .sell-send:hover{background:#7983f5}
       .sell-send:disabled{background:#574a3a;color:#b9a98f;cursor:not-allowed}
       .sell-clear{display:block;margin:9px auto 0;padding:4px 8px;background:none;border:0;color:#d9c196;font-weight:600;font-size:.8rem;text-decoration:underline;cursor:pointer}
       .sell-clear[hidden]{display:none}
@@ -322,7 +322,7 @@
         .bar-total b{display:block;font-family:"Baloo 2",system-ui,sans-serif;font-size:1.2rem;color:var(--gold);font-variant-numeric:tabular-nums}
         .bar-total span{font-size:.76rem;font-weight:700;color:#7ce0c8}
         .bar-open{flex:none;border:0;border-radius:9px;padding:11px 15px;background:var(--red);color:#fff;font-weight:800;font-size:.9rem;cursor:pointer}
-        body.has-cart .zalo-float{bottom:82px}
+        body.has-cart .zalo-float{bottom:96px}
         body.has-cart footer{padding-bottom:150px}
       }
 
@@ -378,20 +378,21 @@
       }
       footer b{color:var(--foam)}
 
-      /* ---------- FLOATING ZALO ---------- */
+      /* ---------- NÚT ĐẶT CÂU HỎI (lá thư, giống trang WoW) → Discord ---------- */
       .zalo-float{
-        position:fixed;right:16px;bottom:16px;z-index:50;
-        width:62px;height:62px;border-radius:50%;
-        background:#fff;border:3px solid #0068ff;
-        box-shadow:0 12px 28px rgba(0,40,90,.35);
-        display:flex;align-items:center;justify-content:center;overflow:hidden;
+        position:fixed;right:20px;bottom:36px;z-index:50;
+        display:flex;align-items:center;gap:10px;
+        background:#f6f1e7;color:#1b140d;text-decoration:none;
+        font-weight:800;font-size:.95rem;padding:9px 12px 9px 9px;min-height:52px;border-radius:14px;
+        border:1px solid rgba(240,118,42,.45);
+        box-shadow:0 14px 32px rgba(0,0,0,.45);
+        transition:transform .25s ease,box-shadow .25s ease;
       }
-      .zalo-float img{width:100%;height:100%;object-fit:cover}
-      .zalo-float::after{
-        content:"Admin";position:absolute;bottom:5px;left:50%;transform:translateX(-50%);
-        background:#0068ff;color:#fff;font-size:.58rem;font-weight:800;
-        padding:1px 7px;border-radius:999px;letter-spacing:.03em;
-      }
+      .zalo-float .af-mail{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#f0762a;color:#fff}
+      .zalo-float .af-line{padding:2px 0;border-bottom:1.5px dashed rgba(27,20,13,.35);white-space:nowrap}
+      .zalo-float .af-pen{flex:none;color:#d35f17;transition:transform .25s ease}
+      .zalo-float:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,.55),0 0 0 4px rgba(240,118,42,.25)}
+      .zalo-float:hover .af-pen{transform:rotate(-14deg) translateX(-3px)}
 
       @media(max-width:560px){
         .hero-logo{width:58px;height:58px}
@@ -468,8 +469,8 @@
       .crew-text h3{margin:0 0 4px;font-family:var(--display);font-weight:400;letter-spacing:.04em;font-size:1.9rem;line-height:1.1}
       .crew-text p{margin:0;color:#ffe3dc;font-size:.95rem;line-height:1.55}
       .crew-actions{display:flex;flex-wrap:wrap;gap:12px}
-      .btn-zalo{background:#0068ff;color:#fff;box-shadow:0 5px 0 #0048b3,0 14px 24px rgba(0,0,0,.3)}
-      .btn-zalo:hover{background:#2b80ff}
+      .btn-zalo{background:#5865f2;color:#fff;box-shadow:0 5px 0 #3c45a5,0 14px 24px rgba(0,0,0,.3)}
+      .btn-zalo:hover{background:#7983f5}
       .social-grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))!important}
       @media(max-width:560px){
         .crew-actions,.crew-actions .btn{width:100%;justify-content:center}
@@ -523,8 +524,10 @@
         .sell-panel{overflow-y:auto}
         .sell-lines{flex:none;overflow:visible}
         body.has-cart .sell-bar{padding-top:6px;padding-bottom:calc(6px + env(safe-area-inset-bottom))}
-        .zalo-float{width:52px;height:52px}
-        body.has-cart .zalo-float{bottom:68px}
+        .zalo-float{right:12px;bottom:26px;min-height:44px;font-size:.88rem;padding:6px 12px 6px 6px}
+        .zalo-float .af-pen{display:none}
+        .zalo-float .af-mail{width:30px;height:30px}
+        body.has-cart .zalo-float{bottom:80px}
       }
       @media(max-width:560px){
         .hero-title{margin-top:20px}
@@ -656,7 +659,7 @@
 
             <div class="board-foot">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".5" fill="currentColor"/></svg>
-              <p style="margin:0" data-i18n="board_foot">Item chưa có giá hoặc cần chốt đơn, anh em nhắn <a href="https://zalo.me/0936854505" target="_blank" rel="noopener"><b>Admin</b></a> để team trả lời trực tiếp.</p>
+              <p style="margin:0" data-i18n="board_foot">Item chưa có giá hoặc cần chốt đơn, anh em nhắn <a href="https://discord.gg/t2fPyUPGY" target="_blank" rel="noopener"><b>Admin</b></a> để team trả lời trực tiếp.</p>
             </div>
           </div>
 
@@ -675,7 +678,7 @@
               <div class="sum-vnd" id="sumVnd">0 ₫</div>
               <div class="sum-usdt" id="sumUsdt">≈ 0.0000 USDT</div>
               <p class="sum-rate" id="sumRate"></p>
-              <button type="button" class="sell-send" id="sellSend" disabled data-i18n="sell_send">Sao chép phiếu &amp; mở Zalo</button>
+              <button type="button" class="sell-send" id="sellSend" disabled data-i18n="sell_send">Sao chép phiếu &amp; mở Discord</button>
               <p class="sell-toast" id="sellToast" role="status"></p>
               <button type="button" class="sell-clear" id="sellClear" hidden data-i18n="sell_clear">Xóa hết phiếu</button>
             </div>
@@ -721,11 +724,11 @@
           <a class="home-link" href="/" title="Về trang chủ GeGe Team"><img class="crew-fox" src="assets/logo.png" alt="Về trang chủ GeGe Team" /></a>
           <div class="crew-text">
             <h3 data-i18n="crew_band_t">Cộng đồng GegeTeam</h3>
-            <p data-i18n="crew_band">Tất cả kênh của team gom về một nơi. Vào trang cộng đồng hoặc nhảy thẳng vào nhóm Zalo.</p>
+            <p data-i18n="crew_band">Tất cả kênh của team gom về một nơi. Vào trang cộng đồng hoặc nhảy thẳng vào Discord.</p>
           </div>
           <div class="crew-actions">
             <a class="btn btn-gold" href="https://gegeteam.xyz" target="_blank" rel="noopener" data-i18n="crew_site">Vào trang cộng đồng</a>
-            <a class="btn btn-zalo" href="https://zalo.me/g/kmxfzujpa7akgrijn5hk" target="_blank" rel="noopener" data-i18n="crew_zalo">Vào nhóm Zalo</a>
+            <a class="btn btn-zalo" href="https://discord.gg/t2fPyUPGY" target="_blank" rel="noopener" data-i18n="crew_zalo">Vào Discord</a>
           </div>
         </div>
 
@@ -738,9 +741,9 @@
             <span class="soc-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.6 5.3A16 16 0 0 0 14.6 4l-.2.5a13 13 0 0 1 3.4 1.7 12.4 12.4 0 0 0-11.6 0A13 13 0 0 1 9.6 4.5L9.4 4a16 16 0 0 0-4 1.3C2.8 9.2 2.1 13 2.4 16.7c1.6 1.2 3.2 2 4.8 2.5l.8-1.2c-.6-.2-1.1-.5-1.6-.8l.4-.3a14 14 0 0 0 10.4 0l.4.3c-.5.3-1 .6-1.6.8l.8 1.2c1.6-.5 3.2-1.3 4.8-2.5.4-4.3-.7-8-2.9-11.4ZM8.7 15.3c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm6.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z"/></svg></span>
             <span><b>Discord</b><span data-i18n="soc_discord">Server chính thức của team</span></span>
           </a>
-          <a class="soc" data-reveal="up" style="--brand:#0d9488" href="https://zalo.me/0936854505" target="_blank" rel="noopener">
+          <a class="soc" data-reveal="up" style="--brand:#0068ff" href="https://zalo.me/g/kmxfzujpa7akgrijn5hk" target="_blank" rel="noopener">
             <span class="soc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"/></svg></span>
-            <span><b>Admin</b><span data-i18n="soc_admin">Hỗ trợ trực tiếp</span></span>
+            <span><b>Zalo</b><span data-i18n="soc_admin">Nhóm Zalo (kênh phụ)</span></span>
           </a>
         </div>
       </div>
@@ -758,8 +761,10 @@
     </div>
     <div class="sell-backdrop" id="sellBackdrop"></div>
 
-    <a class="zalo-float" id="adminFloat" href="https://zalo.me/0936854505" target="_blank" rel="noopener">
-      <img src="assets/fox-support.png" alt="" />
+    <a class="zalo-float" id="adminFloat" href="https://discord.gg/t2fPyUPGY" target="_blank" rel="noopener">
+      <span class="af-mail" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>
+      <span class="af-line" data-i18n="ask_float">Đặt câu hỏi</span>
+      <svg class="af-pen" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3.5a2.1 2.1 0 0 1 3 3L8 18.5l-4 1 1-4Z"/><path d="m15 5.5 3 3"/></svg>
     </a>
 
     <!-- ================= ĐĂNG NHẬP / ĐĂNG KÝ (không bắt buộc) ================= -->
@@ -795,7 +800,7 @@
          ============================================================ */
       var VND_PER_RATE = 1000;   /* 1 rate = bao nhiêu VND */
       var VND_PER_USDT = 26500;  /* 1 USDT = bao nhiêu VND */
-      var ZALO_URL = "https://zalo.me/0936854505";
+      var ZALO_URL = "https://discord.gg/t2fPyUPGY";
 
       var CATEGORIES = [
         { id: "base", css: "g-base",
@@ -871,6 +876,7 @@
       /* ---------- Ngôn ngữ ----------
          Tiếng Việt lấy nguyên từ HTML, tiếng Anh nằm trong EN_HTML (cùng key data-i18n). */
       var EN_HTML = {
+        ask_float: "Ask a question",
         brand: "GEGETEAM · FOX HOUSE",
         brand_sub: "We buy Blox Fruits devil fruits",
         auth_login: "Log in",
@@ -888,12 +894,12 @@
         board_note: "Tap “Add to slip” on the items you own and the slip totals your payout in USDT. Type a name or pick a category to find items fast.",
         live_note: "Prices are updated continuously to track the market.",
         empty: "No matching items. Try another name, such as “Dragon”, “Pain” or “Blade”.",
-        board_foot: 'For items without a price, or to close a deal, message <a href="https://zalo.me/0936854505" target="_blank" rel="noopener"><b>Admin</b></a> and the team will reply directly.',
+        board_foot: 'For items without a price, or to close a deal, message <a href="https://discord.gg/t2fPyUPGY" target="_blank" rel="noopener"><b>Admin</b></a> and the team will reply directly.',
         sell_title: "Sell slip",
         sell_chosen: "selected",
         sell_empty: "No fruits yet. Pick items from the price board to calculate your payout.",
         sell_receive: "You receive",
-        sell_send: "Copy slip & open Zalo",
+        sell_send: "Copy slip & open Discord",
         sell_clear: "Clear slip",
         bar_open: "View slip",
         learn_title: 'Learn about <span class="accent">devil fruits</span>',
@@ -909,12 +915,12 @@
         crew_title: 'Come aboard with <span class="accent">Fox House</span>',
         crew_note: "Join the GegeTeam community to follow new prices and trade deals with the crew.",
         crew_band_t: "GegeTeam community",
-        crew_band: "All the team’s channels in one place. Visit the community site or jump straight into the Zalo group.",
+        crew_band: "All the team’s channels in one place. Visit the community site or jump straight into Discord.",
         crew_site: "Visit community site",
-        crew_zalo: "Join Zalo group",
+        crew_zalo: "Join Discord",
         soc_page: "Official announcements",
         soc_discord: "The team’s official server",
-        soc_admin: "Direct support",
+        soc_admin: "Zalo group (secondary)",
         footer: "<b>GegeTeam · Fox House</b> — Blox Fruits (Roblox) item buying prices. Prices are updated continuously to track the market; to close a deal, contact Admin or the Fanpage for confirmation."
       };
       var TEXT = {
@@ -923,10 +929,10 @@
           search: "Tìm item… ví dụ: Kitsune, Dragon, Dog Blade",
           all: "Tất cả", items: "item", item_one: "item", add: "+ Thêm vào phiếu", ask: "Hỏi giá Admin",
           pending: "Đang cập nhật", pending_sub: "Nhắn Admin để hỏi giá",
-          dec: "Bớt một ", inc: "Thêm một ", each: "/cái", close: "Đóng", slip: "Phiếu bán trái", admin: "Hỗ trợ trực tiếp từ Admin",
+          dec: "Bớt một ", inc: "Thêm một ", each: "/cái", close: "Đóng", slip: "Phiếu bán trái", admin: "Đặt câu hỏi qua Discord",
           rate: "Tỷ giá: 1 USDT = {r}. Admin xác nhận lại khi chốt đơn.",
           bar: "{n} · ≈ {u}",
-          copied: "Đã sao chép phiếu — dán vào khung chat Zalo để gửi Admin.",
+          copied: "Đã sao chép phiếu — dán vào khung chat Discord để gửi Admin.",
           copy_fail: "Không sao chép được — hãy nhắn Admin tên item và số lượng ở phiếu này.",
           msg_head: "Nhà Cáo ơi, mình muốn bán:", msg_total: "Tổng", msg_account: "Tài khoản",
           err_name: "Tên tài khoản gồm 3–20 ký tự: chữ không dấu, số, dấu . _ -",
@@ -942,10 +948,10 @@
           search: "Search items… e.g. Kitsune, Dragon, Dog Blade",
           all: "All", items: "items", item_one: "item", add: "+ Add to slip", ask: "Ask Admin",
           pending: "Updating", pending_sub: "Message Admin for a price",
-          dec: "Remove one ", inc: "Add one ", each: " each", close: "Close", slip: "Sell slip", admin: "Direct support from Admin",
+          dec: "Remove one ", inc: "Add one ", each: " each", close: "Close", slip: "Sell slip", admin: "Ask a question on Discord",
           rate: "Admin confirms the final amount when closing the deal.",
           bar: "{n}",
-          copied: "Slip copied — paste it into the Zalo chat to send to Admin.",
+          copied: "Slip copied — paste it into the Discord chat to send to Admin.",
           copy_fail: "Couldn’t copy — please message Admin the item names and quantities on this slip.",
           msg_head: "Hi Fox House, I want to sell:", msg_total: "Total", msg_account: "Account",
           err_name: "Usernames are 3–20 characters: letters, numbers, . _ -",
