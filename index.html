@@ -644,6 +644,54 @@
 .row-ctl .stepper{gap:4px}
 .row-ctl .stepper button{width:30px;height:30px;border-radius:8px;border:1px solid rgba(255,255,255,.28);background:#191d22;color:#f4f0e9;font-weight:800;cursor:pointer}
 .row.in-cart{border-color:#f0762a;box-shadow:0 0 0 1px #f0762a !important}
+</style><style>
+/* ===== Nền đen cho toàn trang Blox (đồng bộ trang chủ) ===== */
+:root{
+  --night:#07080a; --sea:#101317; --line:#262b31;
+  --foam:#f4f0e9; --foam-soft:#9aa3ad;
+}
+body,.page,.wrap,.board,section{background-color:transparent}
+.page{background:#07080a !important}
+section#bang-gia,section#tim-hieu,section#cong-dong{background:#07080a !important}
+footer{background:#07080a !important}
+.hero{background-color:#07080a}
+
+/* ===== Thẻ giống hệt thẻ boosting WoW ===== */
+.rows{grid-template-columns:repeat(3,1fr) !important;gap:18px}
+@media(max-width:900px){.rows{grid-template-columns:1fr 1fr !important}}
+@media(max-width:600px){.rows{grid-template-columns:1fr !important}}
+.row{
+  display:grid !important;grid-template-columns:1fr auto !important;align-items:end !important;
+  padding:0 0 14px !important;background:#13161a !important;
+  border:1px solid rgba(255,255,255,.13) !important;border-radius:14px !important;
+  overflow:hidden !important;box-shadow:none !important;text-align:left !important;gap:0 10px;
+}
+.row:hover{transform:translateY(-4px) !important;box-shadow:0 20px 38px rgba(0,0,0,.5) !important;border-color:rgba(255,255,255,.24) !important}
+.item-img{
+  grid-column:1 / -1 !important;width:100% !important;height:158px !important;margin:0 0 13px !important;
+  background:#0b0e11 !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;
+}
+.item-img img{width:100% !important;height:100% !important;object-fit:contain !important;padding:8px !important}
+.row-cat{position:absolute !important;top:10px !important;left:10px !important;z-index:2;padding:2px 9px !important;background:rgba(7,8,10,.85) !important;border:1px solid rgba(255,255,255,.2) !important;border-radius:999px;font-size:.62rem !important;letter-spacing:.1em;text-transform:uppercase;color:#ffd9a6}
+.row-name{grid-column:1 / -1 !important;padding:0 16px !important;justify-content:flex-start !important;text-align:left !important;min-height:0 !important;font-size:1rem !important;font-weight:800 !important;color:#f4f0e9 !important;line-height:1.3}
+.row-note{grid-column:1 / -1 !important;position:relative;padding:6px 16px 0 28px !important;min-height:0 !important;text-align:left !important;color:#c3ccd6 !important;font-size:.78rem !important;line-height:1.45 !important;display:block !important;overflow:visible !important;-webkit-line-clamp:none !important}
+.row-note::before{content:"";position:absolute;left:16px;top:12px;width:5px;height:5px;border-radius:50%;background:#f58a1f}
+.row-price{grid-column:1 !important;padding:14px 0 0 16px !important;margin:0 !important;white-space:nowrap}
+.row-price::before{content:"GIÁ";display:block;font-size:.62rem;letter-spacing:.12em;color:#8b94a0;margin-bottom:2px;font-weight:700}
+.price-vnd{font-family:Inter,system-ui,sans-serif !important;font-weight:900 !important;font-size:1rem !important;color:#ffd9a6 !important;line-height:1.2 !important;white-space:nowrap}
+.price-usdt{font-size:.72rem !important;font-weight:700 !important;color:#7ee0b0 !important;white-space:nowrap}
+.price-pending{font-size:.82rem !important;color:#c3ccd6 !important;font-weight:800 !important}
+.row-ctl{grid-column:2 !important;display:flex !important;align-items:center !important;gap:6px !important;padding:14px 14px 0 4px !important;width:auto !important;flex-wrap:nowrap}
+.row-ctl .add-btn,.row-ctl .ask-btn{min-height:36px !important;padding:6px 10px !important;background:#f0762a !important;border:1px solid #f0762a !important;border-radius:9px !important;color:#170c05 !important;font-weight:900 !important;font-size:.66rem !important;letter-spacing:.02em !important;text-transform:uppercase !important;white-space:nowrap !important}
+.row-ctl .add-btn:hover,.row-ctl .ask-btn:hover{background:#ff8f49 !important;border-color:#ff8f49 !important}
+.row-ctl .stepper{display:none !important}
+.row.in-cart .stepper{display:flex !important}
+.row-ctl .stepper button{width:26px !important;height:26px !important;border-radius:7px !important;border:1px solid rgba(255,255,255,.28) !important;background:#191d22 !important;color:#f4f0e9 !important;font-weight:800;cursor:pointer;font-size:.8rem}
+.row.in-cart{border-color:#f0762a !important;box-shadow:0 0 0 1px #f0762a !important}
+</style><style>
+/* Nền đen tuyệt đối cho body (bỏ gradient xanh teal) */
+body{background:#07080a !important;background-image:none !important;color:#f4f0e9}
+.wrap,.board{background-image:none !important}
 </style></head>
   <body>
 
@@ -1090,7 +1138,7 @@
         vi: {
           title: "GegeTeam — Bảng giá thu mua Blox Fruits",
           search: "Tìm item… ví dụ: Kitsune, Dragon, Dog Blade",
-          all: "Tất cả", items: "item", item_one: "item", add: "+ Thêm vào phiếu", ask: "Hỏi giá Admin",
+          all: "Tất cả", items: "item", item_one: "item", add: "Thêm +", ask: "Hỏi giá Admin",
           pending: "Đang cập nhật", pending_sub: "Nhắn Admin để hỏi giá",
           dec: "Bớt một ", inc: "Thêm một ", each: "/cái", close: "Đóng", slip: "Phiếu bán trái", admin: "Đặt câu hỏi qua Discord",
           rate: "Tỷ giá: 1 USDT = {r}. Admin xác nhận lại khi chốt đơn.",
@@ -1109,7 +1157,7 @@
         en: {
           title: "GegeTeam — Blox Fruits buying prices",
           search: "Search items… e.g. Kitsune, Dragon, Dog Blade",
-          all: "All", items: "items", item_one: "item", add: "+ Add to slip", ask: "Ask Admin",
+          all: "All", items: "items", item_one: "item", add: "Add +", ask: "Ask Admin",
           pending: "Updating", pending_sub: "Message Admin for a price",
           dec: "Remove one ", inc: "Add one ", each: " each", close: "Close", slip: "Sell slip", admin: "Ask a question on Discord",
           rate: "Admin confirms the final amount when closing the deal.",
